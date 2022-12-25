@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Escape the Maze</title>
+</head>
+<body>
+  <h1>Escape the Maze</h1>
+  <p>You are a man who has been trapped in a computer screen. You must escape the maze by learning to fly on top of birds. You see a bird flying overhead and decide to give it a try.</p>
+  <p>Type one of the following commands to navigate the maze:</p>
+  <ul>
+    <li>go forward</li>
+    <li>turn left</li>
+    <li>turn right</li>
+    <li>fly</li>
+  </ul>
+  <p>What will you do?</p>
+  <form id="inputForm">
+    <input type="text" id="inputField">
+    <button type="button" id="submitButton">Submit</button>
+  </form>
+  <div id="output"></div>
+  <script>
+    const output = document.getElementById('output');
+    const inputField = document.getElementById('inputField');
+    const submitButton = document.getElementById('submitButton');
+    const maze = [
+      ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'],
+      ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
+      ['#', ' ', '#', '#', ' ', '#', '#', ' ', '#', '#', ' ', '#'],
+      ['#', ' ', '#', '#', ' ', '#', '#', ' ', '#', '#', ' ', '#'],
+      ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
+      ['#', '#', '#', '#', '#', ' ', '#', '#', '#', '#', '#', '#'],
+      ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
+      ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#']
+    ];
+    let playerRow = 1;
+    let playerCol = 1;
+    let playerHasFlown = false;
+    function drawMaze() {
+      output.innerHTML = '';
+      for (let row of maze) {
+        for (let cell of row) {
+          output.innerHTML += cell;
+        }
+        output.innerHTML += '<br>';
+      }
+      output.innerHTML += '<br>';
+    }
+    function movePlayer(direction) {
+      if (direction === 'forward') {
+        if (maze[playerRow][playerCol + 1] !== '#') {
