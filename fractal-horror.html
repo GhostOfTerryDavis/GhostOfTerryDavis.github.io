@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fractal Horror</title>
+  </head>
+  <body>
+    <h1>Welcome to Fractal Horror!</h1>
+    <p>You find yourself trapped in a giant fractal pattern, with no memory of how you got there.</p>
+    <p>As you explore the endless maze of twists and turns, you begin to sense a presence watching your every move...</p>
+    <div id="game-output"></div>
+    <div>
+      <label for="command-input">Enter a command:</label>
+      <input type="text" id="command-input" />
+      <button id="play-button">PLAY!</button>
+    </div>
+    <script>
+      // Get references to the input and output elements
+      const commandInput = document.getElementById('command-input');
+      const gameOutput = document.getElementById('game-output');
+
+      // Get a reference to the play button
+      const playButton = document.getElementById('play-button');
+
+      // Set up a click event handler for the button
+      playButton.addEventListener('click', () => {
+        // Get the command from the input field
+        const command = commandInput.value.toLowerCase();
+
+        if (command === "explore") {
+          gameOutput.innerHTML += "<p>You venture deeper into the fractal pattern, feeling a growing sense of dread with every step. Suddenly, you hear a noise behind you...</p>";
+        } else if (command === "run") {
+          gameOutput.innerHTML += "<p>You turn and flee, your heart pounding in your chest. You can hear the presence gaining on you, its footsteps echoing through the endless corridors of the fractal pattern...</p>";
+        } else if (command === "hide") {
+          gameOutput.innerHTML += "<p>You duck into a nearby alcove and hold your breath, hoping the presence won't find you. As the minutes tick by, you begin to wonder if you'll ever find a way out...</p>";
+        } else if (command === "escape") {
+          gameOutput.innerHTML += "<p>With a burst of desperation, you search for a way out of the fractal pattern. Suddenly, you see a glimmer of light in the distance and make a break for it. You burst out of the pattern and into the open air, panting and relieved to be free.</p>";
+          gameOutput.innerHTML += "<p>Congratulations, you have escaped the fractal pattern!</p>";
+        } else {
+          gameOutput.innerHTML += "<p>Invalid command. Please try again.</p>";
+        }
+      });
+    </script>
+  </body>
+</html>
