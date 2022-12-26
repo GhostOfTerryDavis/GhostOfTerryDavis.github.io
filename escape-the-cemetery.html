@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Escape the Cemetery</title>
+  <!-- Link to Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.7.1/dist/css/bootstrap.min.css">
+  <!-- Link to jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <!-- Link to Bootstrap JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.7.1/dist/js/bootstrap.min.js"></script>
+  <!-- Link to popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.6/dist/umd/popper.min.js"></script>
+  <style>
+    /* Style the stick figure player */
+    .player {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 30px;
+      color: #fff;
+    }
+    /* Style the crypt keeper */
+    .crypt-keeper {
+      position: absolute;
+      left: 75%;
+      top: 75%;
+      transform: translate(-50%, -50%);
+      font-size: 30px;
+      color: #fff;
+    }
+    /* Style the tombstones */
+    .tombstone {
+      position: absolute;
+      font-size: 20px;
+      color: #fff;
+    }
+    /* Style the clues */
+    .clue {
+      position: absolute;
+      font-size: 20px;
+      color: #fff;
+    }
+    /* Style the crows */
+    .crow {
+      position: absolute;
+      font-size: 20px;
+      color: #fff;
+    }
+    /* Style the skeletons */
+    .skeleton {
+      position: absolute;
+      font-size: 20px;
+      color: #fff;
+    }
+    /* Style the zombies */
+    .zombie {
+      position: absolute;
+      font-size: 20px;
+      color: #fff;
+    }
+    /* Style the timer */
+    .timer {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      font-size: 20px;
+      color: #fff;
+    }
+  </style>
+</head>
+<body style="background-color: #000;">
+    <!-- Stick figure player -->
+    <div class="player">
+      O
+      <br>
+      |
+      <br>
+      |
+      <br>
+      |
+      <br>
+      |
+      <br>
+      |
+      <br>
+      |
+      <br>
+      \_
+    </div>
+    <!-- Crypt keeper -->
+    <div class="crypt-keeper">
+      👻
+    </div>
+    <!-- Tombstones -->
+    <div class="tombstone" style="left: 10%; top: 10%;">
+      💀
+    </div>
+    <div class="tombstone" style="left: 20%; top: 20%;">
+      💀
+    </div>
+    <!-- Clues -->
+    <div class="clue" style="left: 30%; top: 30%;">
+      📜
+    </div>
+    <div class="clue" style="left: 40%; top: 40%;">
+      📜
+    </div>
+    <!-- Crows -->
+    <div class="crow" style="left: 50%; top: 50%;">
+      🦅
+    </div>
+    <div class="crow" style="left: 60%; top: 60%;">
+      🦅
+    </div>
+    <!-- Skeletons -->
+    <div class="skeleton" style="left: 70%; top: 70%;">
+      💀
+    </div>
+    <div class="skeleton" style="left: 80%; top: 80%;">
+      💀
+    </div>
+    <!-- Zombies -->
+    <div class="zombie" style="left: 90%; top: 90%;">
+      🧟
+    </div>
+    <div class="zombie" style="left: 100%; top: 100%;">
+      🧟
+    </div>
+    <!-- Timer -->
+    <div class="timer">
+      Time: <span id="time">7:06</span>
+    </div>
+    <script>
+      // Set up the game
+      var gameOver = false;
+      var playerX = 50;
+      var playerY = 50;
+      var cryptKeeperX = 75;
+      var cryptKeeperY = 75;
+      var tombstoneX = [10, 20];
+      var tombstoneY = [10, 20];
+      var clueX = [30, 40];
+      var clueY = [30, 40];
+      var crowX = [50, 60];
+      var crowY = [50, 60];
+          // Set up the riddle
+    var riddle = "What has a heart that doesn't beat?";
+    var answer = "An artichoke";
+    var hints = [
+      "It's a vegetable",
+      "It's green",
+      "It's spiky"
+    ];
+    var hintIndex = 0;
+    // Set up the timer
+    var startTime = Date.now();
+    var timeLimit = 7 * 60 + 6; // 7 minutes and 6 seconds
+    setInterval(function() {
+      var elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+      if (elapsedTime >= timeLimit) {
+        gameOver = true;
+      }
+      var minutes = Math.floor(elapsedTime / 60);
+      var seconds = elapsedTime % 60;
+      if (seconds < 10) {
+        seconds = "0" + seconds;
+      }
+      $("#time").text(minutes + ":" + seconds);
+    }, 1000);
+    // Move the player with arrow keys
+    $(document).keydown(function(e) {
+      if (e.which == 37) { // left arrow key
+        playerX -= 5;
+      }
+      else if (e.which == 38) { // up arrow key
+        playerY -= 5;
+      }
+      else if (e.which == 39) { // right arrow key
+        playerX += 5;
+      }
+      else if (e.which == 40) { // down arrow key
+        playerY += 5;
+      }
+      else if (e.which == 32) { // spacebar
+        // Check if the player is near the crypt keeper
+        if (Math.abs(playerX - cryptKeeperX) <= 10 && Math.abs(playerY - cryptKeeperY) <= 10) {
+          // Check if the player has answered the riddle correctly
+          var playerAnswer = prompt("Riddle: " + riddle + "\n\nAnswer:");
+          if (playerAnswer.toLowerCase() == answer.toLowerCase()) {
+            alert("You won! The crypt keeper steps aside and you escape the cemetery.");
+            gameOver = true;
+          }
+          else {
+            // Offer a hint if the player didn't get the answer correct
+            alert("Incorrect. Here's a hint: " + hints[hintIndex]);
+            hintIndex++;
+            if (hintIndex >= hints.length) {
+              hintIndex = 0;
+            }
+          }
+        }
+        // Check if the player is near any clues
+        for (var i = 0; i < clueX.length; i++) {
+          if (Math.abs(playerX - clueX[i]) <= 10 && Math.abs(playerY - crowY[i]) <= 10) {
+            alert("There is a hint under here: " + hints[hintIndex]);
+            hintIndex++;
+            if (hintIndex >= hints.length) {
+              hintIndex = 0;
+            }
+          }
+        }
+        // Check if the player is near any crows
+        for (var i = 0; i < crowX.length; i++) {
+          if (Math.abs(playerX - crowX[i]) <= 10 && Math.abs(playerY - crowY[i]) <= 10) {
+            alert("The crow tells you a hint about the riddle: " + hints[hintIndex]);
+            hintIndex++;
+            if (hintIndex >= hints.length) {
+              hintIndex = 0;
+            }
+          }
+        }
+      }
+      // Update the player's position on the screen
+      $(".player").css("left", playerX + "%");
+      $(".player").css("top", playerY + "%");
+      // Check if the player has touched any enemies
+      if (Math.abs(playerX - cryptKeeperX) <= 10 && Math.abs(playerY - cryptKeeperY) <= 10) {
+        gameOver = true;
+      }
+      for (var i = 0; i < skeletonX.length; i++) {
+        if (Math.abs(playerX - skeletonX[i]) <= 10 && Math.abs(playerY - skeletonY[i]) <= 10) {
+          gameOver = true;
+          break;
+        }
+      }
+      for (var i = 0; i < zombieX.length; i++) {
+        if (Math.abs(playerX - zombieX[i]) <= 10 && Math.abs(playerY - zombieY[i]) <= 10) {
+          gameOver = true;
+          break;
+        }
+      }
+      // End the game if necessary
+      if (gameOver) {
+        alert("Game over! You were unable to escape the cemetery in time.");
+        $(document).off("keydown");
+      }
+    });
+  </script>
+</body>
+</html>

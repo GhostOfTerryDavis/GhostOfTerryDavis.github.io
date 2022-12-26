@@ -1,0 +1,334 @@
+<html>
+<head>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #game {
+            width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #description {
+            margin-bottom: 20px;
+        }
+
+        #buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        h1 {
+            font-family: "Courier New", monospace;
+            font-size: 32px;
+        }
+
+        p {
+            font-family: "Arial", sans-serif;
+            font-size: 16px;
+        }
+
+        button {
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: grey;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        button {
+            animation: pulse 1s infinite;
+        }
+
+        @media (max-width: 600px) {
+            #game {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="game">
+        <div id="description">You are lost in a forest at night. It's very dark and you can barely see in front of you.
+            You hear strange noises coming from all around you. What do you do?</div>
+        <div id="buttons">
+            <button onclick="explore()">Explore</button>
+            <button onclick="stayPut()">Stay put</button>
+        </div>
+    </div>
+    <script>
+        function explore() {
+            let chance = Math.random();
+            if (chance < 0.3) {
+                document.getElementById('description').innerHTML = 'You wander aimlessly through the forest and eventually come across a clearing. In the clearing, you see a house. Do you go in or keep exploring?';
+                document.getElementById('buttons').innerHTML = '<button onclick="goIn()">Go in</button><button onclick="keepExploring()">Keep exploring</button>';
+            } else if (chance < 0.6) {
+                document.getElementById('description').innerHTML = 'You wander through the forest and come across a small stream. Do you follow the stream or keep exploring?';
+                document.getElementById('buttons').innerHTML = '<button onclick="followStream()">Follow stream</button><button onclick="keepExploring()">Keep exploring</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You wander through the forest and come across a large, gnarled tree. Do you climb it or keep exploring?';
+                document.getElementById('buttons').innerHTML = '<button onclick="climb()">Climb</button><button onclick="keepExploring()">Keep exploring</button>';
+            }
+        }
+
+        function stayPut() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You decide to stay put and wait for morning. As the night wears on, you hear more and more strange noises. Do you investigate or stay put?';
+                document.getElementById('buttons').innerHTML = '<button onclick="investigate()">Investigate</button><button onclick="stayPut()">Stay put</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You decide to stay put and wait for morning. As the night wears on, you fall into a fitful sleep and wake up to the sound of birds singing. You are relieved to see that it is morning and you are safe. Do you continue on your journey or go back home?';
+                document.getElementById('buttons').innerHTML = '<button onclick="continueJourney()">Continue journey</button><button onclick="goBack()">Go back</button>';
+            }
+        }
+
+        function goIn() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You cautiously approach the house and go inside. It\'s dark and dusty, but you see a faint light coming from the back of the house. Do you follow the light or turn back?';
+                document.getElementById('buttons').innerHTML = '<button onclick="followLight()">Follow light</button><button onclick="turnBack()">Turn back</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You cautiously approach the house and go inside. As soon as you enter, you feel a strong sense of dread. Do you keep exploring or turn back?';
+                document.getElementById('buttons').innerHTML = '<button onclick="keepExploring()">Keep exploring</button><button onclick="turnBack()">Turn back</button>';
+            }
+        }
+
+        function keepExploring() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You continue exploring the forest and come across a small pond. Do you go for a swim or keep exploring?';
+                document.getElementById('buttons').innerHTML = '<button onclick="swim()">Go for a swim</button><button onclick="keepExploring()">Keep exploring</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You continue exploring the forest and come across a small village. You are relieved to have found civilization and decide to stay for a while. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            }
+        }
+
+        function climb() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You climb the tree and are able to get a good view of the surrounding area. You see a small village in the distance. Do you climb down and head towards the village or stay in the tree?';
+                document.getElementById('buttons').innerHTML = '<button onclick="climbDown()">Climb down</button><button onclick="stayInTree()">Stay in tree</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You climb the tree and are able to get a good view of the surrounding area. You see a road in the distance. Do you climb down and head towards the road or stay in the tree?';
+                document.getElementById('buttons').innerHTML = '<button onclick="climbDown()">Climb down</button><button onclick="stayInTree()">Stay in tree</button>';
+            }
+        }
+
+        function followStream() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You follow the stream and it leads you to a waterfall. Do you go for a swim or keep exploring?';
+                document.getElementById('buttons').innerHTML = '<button onclick="swim()">Go for a swim</button><button onclick="keepExploring()">Keep exploring</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You follow the stream and it leads you to a small village. You are relieved to have found civilization and decide to stay for a while. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            }
+        }
+
+
+        function investigate() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You decide to investigate the strange noises. As you are searching, you are attacked by a group of wild animals. You are able to fend them off, but you are badly injured. Do you try to find help or continue on your journey?';
+                document.getElementById('buttons').innerHTML = '<button onclick="findHelp()">Find help</button><button onclick="continueJourney()">Continue journey</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You decide to investigate the strange noises. As you are searching, you come across a group of people huddled around a fire. They invite you to join them and you decide to stay with them for the night. Do you continue on your journey in the morning or stay with the group?';
+                document.getElementById('buttons').innerHTML = '<button onclick="continueJourney()">Continue journey</button><button onclick="stayWithGroup()">Stay with group</button>';
+            }
+        }
+        function playAgain() {
+            location.reload();
+        }
+
+        function goBack() {
+            document.getElementById('description').innerHTML = 'You decide to go back home. As you make your way through the forest, you feel a sense of relief wash over you. You are safe and sound. The end.';
+            document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+        }
+
+        function findHelp() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You try to find help but are unable to locate anyone. You are left to fend for yourself and eventually succumb to your injuries. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You are able to find help and are taken to a nearby hospital. You are treated for your injuries and make a full recovery. Do you continue on your journey or go back home?';
+                document.getElementById('buttons').innerHTML = '<button onclick="continueJourney()">Continue journey</button><button onclick="goBack()">Go back</button>';
+            }
+        }
+        function continueJourney() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You decide to continue on your journey. As you walk, you come across a fork in the road. Do you go left or right?';
+                document.getElementById('buttons').innerHTML = '<button onclick="goLeft()">Go left</button><button onclick="goRight()">Go right</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You decide to continue on your journey. As you walk, you come across a small village. You are relieved to have found civilization and decide to stay for a while. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            }
+        }
+
+        function approach() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You approach the figure cautiously and realize that it is a lost hiker. They are grateful for your help and offer to guide you back to civilization. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'As you approach the figure, you realize that it is a dangerous animal. You quickly climb back down the tree and make your way back through the forest. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            }
+        }
+
+        function climbDown() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You climb down the tree and see a small village in the distance. You make your way towards the village and are relieved to have found civilization. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You climb down the tree and come across a beautiful waterfall. You decide to rest by the waterfall for a while. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            }
+        }
+
+        function stayInTree() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'As you stay in the tree, you see a figure approaching in the distance. Do you approach or stay in the tree?';
+                document.getElementById('buttons').innerHTML = '<button onclick="approach()">Approach</button><button onclick="stayInTree()">Stay in tree</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You decide to stay in the tree until morning. As the night wears on, you fall into a fitful sleep and wake up to the sound of birds singing. You are relieved to see that it is morning and you are safe. Do you continue on your journey or go back home?';
+                document.getElementById('buttons').innerHTML = '<button onclick="continueJourney()">Continue journey</button><button onclick="goBack()">Go back</button>';
+            }
+        }
+        function followLight() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You follow the light and find yourself in a room with an old man. He seems friendly and offers to help you find your way out of the forest. Do you accept his help or try to find your own way out?';
+                document.getElementById('buttons').innerHTML = '<button onclick="acceptHelp()">Accept help</button><button onclick="findOwnWay()">Find own way</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You follow the light and find yourself in a room with an old man. As soon as you enter, he locks the door and reveals that he is a monster in disguise. You are never seen again. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            }
+        }
+
+        function turnBack() {
+            document.getElementById('description').innerHTML = 'You decide to turn back and leave the house. As you leave, you see a figure approaching in the distance. Do you approach or run away?';
+            document.getElementById('buttons').innerHTML = '<button onclick="approach()">Approach</button><button onclick="runAway()">Run away</button>';
+        }
+        function swim() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You decide to swim across the river. You struggle against the current, but eventually make it to the other side. As you climb out of the water, you see a path leading through the woods. Do you follow the path or keep exploring?';
+                document.getElementById('buttons').innerHTML = '<button onclick="followPath()">Follow path</button><button onclick="keepExploring()">Keep exploring</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You decide to swim across the river, but you are not a strong swimmer and quickly become exhausted. You drown in the river. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            }
+        }
+        function followPath() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You follow the path and eventually come across a small village. The villagers are friendly and invite you to stay with them for the night. Do you accept their invitation or keep going?';
+                document.getElementById('buttons').innerHTML = '<button onclick="acceptInvitation()">Accept invitation</button><button onclick="keepGoing()">Keep going</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You follow the path and eventually come across a small village. As soon as you enter, you are attacked by a group of thieves. You are never seen again. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            }
+        }
+        function stayWithGroup() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You decide to stay with the group and continue on your journey together. You encounter many dangers, but you are able to overcome them as a team. Eventually, you make it out of the forest and back to civilization. You are hailed as heroes and everyone lives happily ever after. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You decide to stay with the group, but they are not as friendly as they seemed. They betray you and leave you stranded in the forest. You are never seen again. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            }
+        }
+        function runAway() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You decide to run away and manage to escape the figure approaching you. You are exhausted and lost, but you come across a group of travelers who offer to help you. Do you accept their help or try to find your own way out of the forest?';
+                document.getElementById('buttons').innerHTML = '<button onclick="acceptHelp()">Accept help</button><button onclick="findOwnWay()">Find own way</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You decide to run away, but the figure chasing you is faster and catches up to you. You are never seen again. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            }
+        }
+        function goLeft() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You go left and come across a small clearing. You see a figure in the distance and hear strange noises all around you. Do you approach the figure or run away?';
+                document.getElementById('buttons').innerHTML = '<button onclick="approach()">Approach</button><button onclick="runAway()">Run away</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You go left and come across a small clearing. You see a group of travelers camped out in the clearing. They invite you to join them on their journey. Do you stay with them or try to find your own way out of the forest?';
+                document.getElementById('buttons').innerHTML = '<button onclick="stayWithGroup()">Stay with group</button><button onclick="findOwnWay()">Find own way</button>';
+            }
+        }
+
+        function goRight() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You go right and come across a large river. You see a small boat tied up on the riverbank. Do you try to cross the river in the boat or keep exploring?';
+                document.getElementById('buttons').innerHTML = '<button onclick="swim()">Swim</button><button onclick="keepExploring()">Keep exploring</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You go right and come across a large river. You see a small village on the other side of the river. Do you try to swim across or keep exploring?';
+                document.getElementById('buttons').innerHTML = '<button onclick="swim()">Swim</button><button onclick="keepExploring()">Keep exploring</button>';
+            }
+        }
+        function findOwnWay() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You decide to find your own way out of the forest and eventually come across a path. Do you follow the path or keep exploring?';
+                document.getElementById('buttons').innerHTML = '<button onclick="followPath()">Follow path</button><button onclick="keepExploring()">Keep exploring</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You decide to find your own way out of the forest, but you get lost and are never seen again. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            }
+        }
+        function acceptHelp() {
+            let chance = Math.random();
+            if (chance < 0.5) {
+                document.getElementById('description').innerHTML = 'You accept the travelers' + "'" + ' help and they guide you safely out of the forest. You are relieved and grateful to be out of danger. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            } else {
+                document.getElementById('description').innerHTML = 'You accept the travelers' + "'" + ' help, but they turn out to be a group of thieves who rob you and leave you stranded in the forest. You are never seen again. The end.';
+                document.getElementById('buttons').innerHTML = '<button onclick="playAgain()">Play again</button>';
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

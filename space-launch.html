@@ -1,0 +1,231 @@
+<html>
+<head>
+  <style>
+    /* Style the rocket */
+    .rocket {
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      background-color: silver;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Style the golden snitch */
+    .golden-snitch {
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      background-color: gold;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Style the asteroids */
+    .asteroid {
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      background-color: gray;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <!-- The rocket that the player controls -->
+  <div class="rocket" id="rocket"></div>
+
+  <!-- The golden snitch that the player tries to catch -->
+ 
+  <div class="golden-snitch" id="golden-snitch"></div>
+  <!-- The asteroids that the player tries to avoid -->
+  <div class="asteroid" id="asteroid1"></div>
+  <div class="asteroid" id="asteroid2"></div>
+  <div class="asteroid" id="asteroid3"></div>
+  <!-- The button that launches the game -->
+<button id="launch-button">LAUNCH</button>
+  <script>
+    // Get references to the rocket, golden snitch, asteroids, and launch button
+    const rocket = document.getElementById('rocket');
+    const goldenSnitch = document.getElementById('golden-snitch');
+    const asteroids = document.querySelectorAll('.asteroid');
+    const launchButton = document.getElementById('launch-button');
+
+    // Set the initial position of the rocket
+    let rocketPosX = 50;
+    let rocketPosY = 50;
+
+    // Set the initial velocity of the rocket
+    let rocketVelX = 0;
+    let rocketVelY = 0;
+
+    // Set the initial position of the golden snitch
+    let goldenSnitchPosX = 50;
+    let goldenSnitchPosY = 50;
+
+    // Set the initial velocity of the golden snitch
+    let goldenSnitchVelX = 5;
+    let goldenSnitchVelY = 5;
+
+    // Set the initial positions and velocities of the asteroids
+    let asteroid1PosX = 10;
+    let asteroid1PosY = 10;
+    let asteroid1VelX = 3;
+    let asteroid1VelY = 3;
+    let asteroid2PosX = 90;
+    let asteroid2PosY = 10;
+    let asteroid2VelX = -3;
+    let asteroid2VelY = 3;
+    let asteroid3PosX = 50;
+    let asteroid3PosY = 90;
+    let asteroid3VelX = 3;
+let asteroid3VelY = -3;
+// Set the game status to "not launched"
+let launched = false;
+
+// Set the game status to "not over"
+let gameOver = false;
+
+// Set up event listener for the launch button
+launchButton.addEventListener('click', e => {
+  // Launch the game and start the game loop
+  launched = true;
+  gameLoop();
+});
+
+// Set up event listener for the arrow keys to control the rocket
+document.addEventListener('keydown', e => {
+  if (e.keyCode === 37) {
+    // Left arrow key pressed
+    rocketVelX = -5;
+  } else if (e.keyCode === 38) {
+    // Up arrow key pressed
+    rocketVelY = -5;
+  } else if (e.keyCode === 39) {
+    // Right arrow key pressed
+    rocketVelX = 5;
+  } else if (e.keyCode === 40) {
+    // Down arrow key pressed
+    rocketVelY = 5;
+  }
+});
+
+// Set up event listener for the arrow keys to stop the rocket when the keys are released
+document.addEventListener('keyup', e => {
+  if (e.keyCode === 37 || e.keyCode === 39) {
+    // Left or right arrow key released
+    rocketVelX = 0;
+  } else if (e.keyCode === 38 || e.keyCode === 40) {
+    // Up or down arrow key released
+    rocketVelY = 0;
+  }
+});
+
+// Set up the game loop
+function gameLoop() {
+  // If the game is over, stop the game loop
+  if (gameOver) {
+    return;
+  }
+
+  // Update the position of the rocket
+  rocketPosX += rocketVelX;
+  rocketPosY += rocketVelY;
+
+  // Keep the rocket within the boundaries of the screen
+  if (rocketPosX < 0) {
+    rocketPosX = 0;
+  } else if (rocketPosX > 100) {
+    rocketPosX = 100;
+  }
+  if (rocketPosY < 0) {
+    rocketPosY = 0;
+  } else if (rocketPosY > 100) {
+    rocketPosY = 100;
+  }
+
+  // Update the position of the golden snitch
+  goldenSnitchPosX += goldenSnitchVelX;
+  goldenSnitchPosY += goldenSnitchVelY;
+
+  // If the golden snitch hits the edge of the screen, reverse its velocity
+  if (goldenSnitchPosX < 0 || goldenSnitchPosX > 100) {
+    goldenSnitchVelX *= -1;
+  }
+  if (goldenSnitchPosY < 0 || goldenSnitchPosY > 100) {
+    goldenSnitchVelY *= -1;
+  }
+
+  // Update the positions of the asteroids
+  asteroid1PosX += asteroid1VelX;
+  asteroid1PosY += asteroid1VelY;
+  asteroid2PosX += asteroid2VelX;
+  asteroid2PosY += asteroid2VelY;
+  asteroid3PosX += asteroid3VelX;
+  asteroid3PosY += asteroid3VelY;
+
+  //
+// If an asteroid hits the edge of the screen, reverse its velocity
+if (asteroid1PosX < 0 || asteroid1PosX > 100) {
+asteroid1VelX *= -1;
+}
+if (asteroid1PosY < 0 || asteroid1PosY > 100) {
+asteroid1VelY *= -1;
+}
+if (asteroid2PosX < 0 || asteroid2PosX > 100) {
+asteroid2VelX *= -1;
+}
+if (asteroid2PosY < 0 || asteroid2PosY > 100) {
+asteroid2VelY *= -1;
+}
+if (asteroid3PosX < 0 || asteroid3PosX > 100) {
+asteroid3VelX *= -1;
+}
+if (asteroid3PosY < 0 || asteroid3PosY > 100) {
+asteroid3VelY *= -1;
+}
+  // Check if the rocket hits an asteroid
+  if (
+    Math.abs(rocketPosX - asteroid1PosX) < 25 && Math.abs(rocketPosY - asteroid1PosY) < 25 ||
+    Math.abs(rocketPosX - asteroid2PosX) < 25 && Math.abs(rocketPosY - asteroid2PosY) < 25 ||
+    Math.abs(rocketPosX - asteroid3PosX) < 25 && Math.abs(rocketPosY - asteroid3PosY) < 25
+  ) {
+    // The rocket hit an asteroid, so the player loses
+    gameOver = true;
+    alert('You lose!');
+  }
+
+  // Check if the rocket catches the golden snitch
+  if (Math.abs(rocketPosX - goldenSnitchPosX) < 10 && Math.abs(rocketPosY - goldenSnitchPosY) < 10) {
+    // The rocket caught the golden snitch, so the player wins
+    gameOver = true;
+    alert('You win!');
+  }
+
+  // Update the positions of the rocket, golden snitch, and asteroids on the screen
+  rocket.style.left = `${rocketPosX}%`;
+  rocket.style.top = `${rocketPosY}%`;
+  goldenSnitch.style.left = `${goldenSnitchPosX}%`;
+  goldenSnitch.style.top = `${goldenSnitchPosY}%`;
+  asteroid1.style.left = `${asteroid1PosX}%`;
+  asteroid1.style.top = `${asteroid1PosY}%`;
+  asteroid2.style.left = `${asteroid2PosX}%`;
+  asteroid2.style.top = `${asteroid2PosY}%`;
+  asteroid3.style.left = `${asteroid3PosX}%`;
+  asteroid3.style.top = `${asteroid3PosY}%`;
+
+  // Run the game loop again after a short delay
+  setTimeout(gameLoop, 10);
+}
+
+</script>
+</body>
+</html>
+

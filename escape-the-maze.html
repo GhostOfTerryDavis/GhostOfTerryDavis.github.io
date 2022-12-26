@@ -8,10 +8,10 @@
   <p>You are a man who has been trapped in a computer screen. You must escape the maze by learning to fly on top of birds. You see a bird flying overhead and decide to give it a try.</p>
   <p>Type one of the following commands to navigate the maze:</p>
   <ul>
-    <li>go forward</li>
-    <li>turn left</li>
-    <li>turn right</li>
-    <li>fly</li>
+    <li>right</li>
+    <li>down</li>
+    <li>left</li>
+    <li>up</li>
   </ul>
   <p>What will you do?</p>
   <form id="inputForm">
@@ -25,12 +25,12 @@
     const submitButton = document.getElementById('submitButton');
     const maze = [
       ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'],
-      ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
-      ['#', ' ', '#', '#', ' ', '#', '#', ' ', '#', '#', ' ', '#'],
-      ['#', ' ', '#', '#', ' ', '#', '#', ' ', '#', '#', ' ', '#'],
-      ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
-      ['#', '#', '#', '#', '#', ' ', '#', '#', '#', '#', '#', '#'],
-      ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#'],
+      ['#', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '#'],
+      ['#', '_', '#', '#', '_', '#', '#', '_', '#', '#', '_', '#'],
+      ['#', '_', '#', '#', '_', '#', '#', '_', '#', '#', '_', '#'],
+      ['#', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '#'],
+      ['#', '#', '#', '#', '#', '_', '#', '#', '#', '#', '#', '#'],
+      ['#', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '#'],
       ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#']
     ];
     let playerRow = 1;
@@ -38,14 +38,70 @@
     let playerHasFlown = false;
     function drawMaze() {
       output.innerHTML = '';
-      for (let row of maze) {
-        for (let cell of row) {
-          output.innerHTML += cell;
+      for (let i = 0; i < maze.length; i++) {
+        for (let j = 0; j < maze[i].length; j++) {
+          if (i === playerRow && j === playerCol) {
+            output.innerHTML += 'X';
+          } else {
+            output.innerHTML += maze[i][j];
+          }
         }
         output.innerHTML += '<br>';
       }
       output.innerHTML += '<br>';
     }
     function movePlayer(direction) {
-      if (direction === 'forward') {
+      if (direction === 'right') {
         if (maze[playerRow][playerCol + 1] !== '#') {
+          playerCol += 1;
+        } else {
+          output.innerHTML += 'You can\'t go that way. Try a different command.<br>';
+          return;
+        }
+      } else if (direction === 'down') {
+        if (maze[playerRow + 1][playerCol] !== '#') {
+          playerRow += 1;
+        } else {
+          output.innerHTML += 'You can\'t go that way. Try a different command.<br>';
+          return;
+        }
+      } else if (direction === 'left') {
+        if (maze[playerRow][playerCol - 1] !== '#') {
+          playerCol -= 1;
+        } else {
+          output.innerHTML += 'You can\'t gothat way. Try a different command.<br>';
+          return;
+        }
+      } else if (direction === 'up') {
+        if (maze[playerRow - 1][playerCol] !== '#') {
+          playerRow -= 1;
+        } else {
+          output.innerHTML += 'You can\'t go that way. Try a different command.<br>';
+          return;
+        }
+      }
+      drawMaze();
+      if (playerRow === maze.length - 2 && playerCol === maze[0].length - 2) {
+        output.innerHTML += 'Congratulations, you have escaped the maze!<br>';
+        inputField.disabled = true;
+        submitButton.disabled = true;
+      }
+    }
+    drawMaze();
+    inputField.addEventListener('keydown', function(event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        const input = inputField.value;
+        inputField.value = '';
+        movePlayer(input);
+      }
+    });
+    submitButton.addEventListener('click', function() {
+      const input = inputField.value;
+      inputField.value = '';
+      movePlayer(input);
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,267 @@
+<html>
+  <head>
+    <style>
+      /* Add some styling for the game */
+      body {
+        background-color: black;
+        color: white;
+      }
+
+      .wall {
+        /* Set the appearance of walls */
+        background-color: gray;
+        height: 50px;
+        width: 50px;
+        display: inline-block;
+      }
+
+      .door {
+        /* Set the appearance of doors */
+        background-color: brown;
+        height: 50px;
+        width: 50px;
+        display: inline-block;
+      }
+
+      .player {
+        /* Set the appearance of the player */
+        background-color: red;
+        height: 50px;
+        width: 50px;
+        display: inline-block;
+      }
+
+      .monster {
+        /* Set the appearance of the monster */
+        background-color: green;
+        height: 50px;
+        width: 50px;
+        display: inline-block;
+      }
+
+      .empty {
+        /* Set the appearance of empty spaces */
+        background-color: black;
+        height: 50px;
+        width: 50px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Create a container to hold the game board -->
+    <div id="game">
+    </div>
+
+    <script>
+      // Define the game board as a 2D array
+      let board = [];
+
+      // Define the player's starting position
+      let playerX = 1;
+      let playerY = 1;
+
+      // Set the player's initial direction
+      let direction = 'down';
+
+      // Define the monster's starting position
+      let monsterX = 8;
+      let monsterY = 8;
+
+      // Set the monster's initial direction
+      let monsterDirection = 'up';
+
+            // Define a function to generate a random maze
+            function generateMaze() {
+        // Set the player's starting position
+        playerX = 1;
+        playerY = 1;
+
+        // Set the monster's starting position
+        monsterX = 8;
+        monsterY = 8;
+
+        // Create an empty board
+        board = [];
+
+        // Loop through each row of the board
+        for (let i = 0; i < 10; i++) {
+          // Create an empty row
+          let row = [];
+
+          // Loop through each column of the row
+          for (let j = 0; j < 10; j++) {
+            // Choose a random element for the cell
+            let element;
+            if (Math.random() < 0.2) {
+              element = 'wall';
+            } else {
+              element = 'empty';
+            }
+
+            // Add the element to the row
+            row.push(element);
+          }
+
+          // Add the row to the board
+          board.push(row);
+        }
+
+        // Add a door to the middle of the top wall
+        board[0][4] = 'door';
+
+        // Add the glasses to a random empty cell
+        let glassesX = Math.floor(Math.random() * 8) + 1;
+        let glassesY = Math.floor(Math.random() * 8) + 1;
+        board[glassesY][glassesX] = 'glasses';
+      }
+
+      // Define a function to move the player
+      function movePlayer(newDirection) {
+        // Update the player's direction
+        direction = newDirection;
+
+        // Update the player's position based on their direction
+        if (direction === 'up') {
+          playerY--;
+        } else if (direction === 'down') {
+          playerY++;
+        } else if (direction === 'left') {
+          playerX--;
+        } else if (direction === 'right') {
+          playerX++;
+        }
+
+        // Get the element at the new player position
+        let element = board[playerY][playerX];
+
+        // Check if the player has found their glasses
+        if (element === 'glasses') {
+          alert('You found your glasses! You win!');
+          return;
+        }
+
+        // Check if the player has hit a wall
+        if (element === 'wall') {
+          alert('You hit a wall! Try a different direction.');
+          playerX = playerX - (direction === 'left' ? 1 : -1);
+          playerY = playerY - (direction === 'up' ? 1 : -1);
+          return;
+        }
+
+        // Update the game board to reflect the player's new position
+        updateBoard();
+      }
+
+            // Define a function to move the monster
+            function moveMonster() {
+        // Choose a random direction for the monster to move in
+        let directions = ['up', 'down', 'left', 'right'];
+        monsterDirection = directions[Math.floor(Math.random() * directions.length)];
+
+        // Update the monster's position based on its direction
+        if (monsterDirection === 'up') {
+          monsterY--;
+        } else if (monsterDirection === 'down') {
+          monsterY++;
+        } else if (monsterDirection === 'left') {
+          monsterX--;
+        } else if (monsterDirection === 'right') {
+          monsterX++;
+        }
+
+        // Get the element at the new monster position
+        let element = board[monsterY][monsterX];
+
+        // Check if the monster has hit a wall
+        if (element === 'wall') {
+          monsterX = monsterX - (monsterDirection === 'left' ? 1 : -1);
+          monsterY = monsterY - (monsterDirection === 'up' ? 1 : -1);
+          return;
+        }
+
+        // Check if the monster has caught the player
+        if (monsterX === playerX && monsterY === playerY) {
+          alert('The monster caught you! You lose!');
+          return;
+        }
+
+        // Update the game board to reflect the monster's new position
+        updateBoard();
+      }
+
+      // Define a function to update the game board
+      function updateBoard() {
+        // Clear the existing game board
+        let game = document.getElementById('game');
+        game.innerHTML = '';
+
+        // Loop through each element in the board array
+        for (let row of board) {
+          for (let element of row) {
+            // Create a div for each element
+            let div = document.createElement('div');
+
+            // Set the div's class based on the element type
+            if (element === 'wall') {
+              div.classList.add('wall');
+            } else if (element === 'door') {
+              div.classList.add('door');
+            } else if (element === 'glasses') {
+              div.classList.add('glasses');
+            } else {
+              div.classList.add('empty');
+            }
+
+            // Add the div to the game board
+            game.appendChild(div);
+          }
+        }
+
+                // Create a div for the player
+                let player = document.createElement('div');
+        player.classList.add('player');
+
+        // Set the player's position based on their coordinates
+        player.style.top = playerY * 50 + 'px';
+        player.style.left = playerX * 50 + 'px';
+
+        // Add the player to the game board
+        game.appendChild(player);
+
+        // Create a div for the monster
+        let monster = document.createElement('div');
+        monster.classList.add('monster');
+
+        // Set the monster's position based on its coordinates
+        monster.style.top = monsterY * 50 + 'px';
+        monster.style.left = monsterX * 50 + 'px';
+
+        // Add the monster to the game board
+        game.appendChild(monster);
+      }
+
+      // Generate the initial maze
+      generateMaze();
+
+      // Update the game board to reflect the initial state
+      updateBoard();
+
+      // Set an interval to move the monster every 500ms
+      setInterval(moveMonster, 500);
+
+      // Set an event listener to handle player movement
+      document.addEventListener('keydown', event => {
+        if (event.key === 'ArrowUp') {
+          movePlayer('up');
+        } else if (event.key === 'ArrowDown') {
+          movePlayer('down');
+        } else if (event.key === 'ArrowLeft') {
+          movePlayer('left');
+        } else if (event.key === 'ArrowRight') {
+          movePlayer('right');
+        }
+      });
+    </script>
+  </body>
+</html>
