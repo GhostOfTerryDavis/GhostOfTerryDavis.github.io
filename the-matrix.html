@@ -9,12 +9,78 @@
     canvas {
       background-color: green;
     }
+
+    .arrow-up,
+    .arrow-down,
+    .arrow-left,
+    .arrow-right {
+      width: 50px;
+      height: 50px;
+      background-color: white;
+      border: none;
+      outline: none;
+    }
+
+    .arrow-up {
+      background-image: url(up-arrow.png);
+      background-size: cover;
+    }
+
+    .arrow-down {
+      background-image: url(down-arrow.png);
+      background-size: cover;
+    }
+
+    .arrow-left {
+      background-image: url(left-arrow.png);
+      background-size: cover;
+    }
+
+    .arrow-right {
+      background-image: url(right-arrow.png);
+      background-size: cover;
+    }
   </style>
 </head>
 
 <body>
   <canvas id="gameCanvas"></canvas>
+  <button class="arrow-up">&#8593;</button>
+  <button class="arrow-down">&#8595;</button>
+  <button class="arrow-left">&#8592;</button>
+  <button class="arrow-right">&#8594;</button>
+
   <script>
+
+    document.querySelector(".arrow-up").addEventListener("mousedown", () => {
+      upPressed = true;
+    });
+    document.querySelector(".arrow-up").addEventListener("mouseup", () => {
+      upPressed = false;
+    });
+
+    document.querySelector(".arrow-down").addEventListener("mousedown", () => {
+      downPressed = true;
+    });
+    document.querySelector(".arrow-down").addEventListener("mouseup", () => {
+      downPressed = false;
+    });
+
+    document.querySelector(".arrow-left").addEventListener("mousedown", () => {
+      leftPressed = true;
+    });
+    document.querySelector(".arrow-left").addEventListener("mouseup", () => {
+      leftPressed = false;
+    });
+
+    document.querySelector(".arrow-right").addEventListener("mousedown", () => {
+      rightPressed = true;
+    });
+    document.querySelector(".arrow-right").addEventListener("mouseup", () => {
+      rightPressed = false;
+    });
+
+
     let gameOver = false;
     let gameOverText = "";
 
@@ -82,6 +148,7 @@
     let startTime = Date.now();
     let elapsedTime = 0;
 
+
     // Update the game state
     function update() {
       // Calculate elapsed time
@@ -90,6 +157,14 @@
       // Stop the game if the player has been hit by a bullet
       if (gameOver) {
         return;
+      }
+
+      // Update the bullet speed as the game progresses
+      if (elapsedTime > 30) {
+        bulletSpeed = 7;
+      }
+      if (elapsedTime > 60) {
+        bulletSpeed = 9;
       }
 
       // Move the player based on the keyboard input
@@ -125,7 +200,7 @@
         });
       }
 
-      // Check for collision with bullets
+      // Check for collision with bullets or edge of game board
       for (let i = 0; i < bullets.length; i++) {
         let bullet = bullets[i];
         if (
@@ -134,7 +209,7 @@
           player.y < bullet.y + bullet.height &&
           player.y + player.height > bullet.y
         ) {
-          // Collision detected, end the game
+          // Collision with bullet detected, end the game
           gameOver = true;
           gameOverText = "Game Over";
 
@@ -145,6 +220,20 @@
           }
         }
       }
+
+      // Check if player has touched the edge of the game board
+      if (player.x < 0 || player.x + player.width > canvas.width || player.y < 0 || player.y + player.height > canvas.height) {
+        // Player has touched the edge of the game board, end the game
+        gameOver = true;
+        gameOverText = "Game Over";
+
+        // Update the high score if necessary
+        let highScore = getCookie("highScore");
+        if (highScore === undefined || elapsedTime > highScore) {
+          setCookie("highScore", elapsedTime, 365);
+        }
+      }
+
     }
 
     // Draw the game elements
@@ -205,16 +294,16 @@
     }
 
     // The game loop
-function gameLoop() {
-  update();
-  draw();
-  if (!gameOver) {
-    requestAnimationFrame(gameLoop);
-  } else {
-    // Cancel the requestAnimationFrame call when the game is over
-    return;
-  }
-}
+    function gameLoop() {
+      update();
+      draw();
+      if (!gameOver) {
+        requestAnimationFrame(gameLoop);
+      } else {
+        // Cancel the requestAnimationFrame call when the game is over
+        return;
+      }
+    }
 
 
     gameLoop();
