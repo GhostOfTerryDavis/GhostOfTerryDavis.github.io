@@ -1,0 +1,598 @@
+<main class="relative h-full w-full transition-width flex flex-col overflow-hidden items-stretch flex-1"><div class="flex-1 overflow-hidden"><div class="react-scroll-to-bottom--css-vymow-79elbk h-full dark:bg-gray-800"><div class="react-scroll-to-bottom--css-vymow-1n7m0yu"><div class="flex flex-col items-center text-sm h-full dark:bg-gray-800"><div class="w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group dark:bg-gray-800"><div class="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0"><div class="w-[30px] flex flex-col relative items-end"><div class="relative flex"><span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"><span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"><img alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2730%27/%3e" style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"></span><img alt="cosmicgreens@proton.me" srcset="/_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=32&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=64&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=64&amp;q=75" decoding="async" data-nimg="intrinsic" class="rounded-sm" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"></span></div></div><div class="relative flex w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]"><div class="flex flex-grow flex-col gap-3"><div class="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">Please return a JavaScript function that makes the HTML bird objects in the code below clickable and adds a link to each bird that changes the CSS styling of the entire HTML file, and make each bird set the page to a unique styling &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+  &lt;title&gt;Games by ChatGPT&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      background-color: #000000;
+      color: #00ff00;
+      font-family: "Lucida Console", monospace;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-style: italic;
+      margin: 20px 0;
+    }
+
+    a {
+      color: #00b8d4;
+      margin: 10px;
+      padding: 10px;
+      text-decoration: none;
+    }
+
+    a:hover {
+      background-color: #00b8d4;
+      color: #fff;
+    }
+
+    #judgement-button {
+      background-color: #00b8d4;
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 10px 20px;
+      text-transform: uppercase;
+    }
+
+    #judgement-button:hover {
+      background-color: #00ff00;
+      cursor: pointer;
+    }
+
+    #offering-button {
+      background-color: #00b8d4;
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 10px 20px;
+      text-transform: uppercase;
+    }
+
+    #offering-button:hover {
+      background-color: #00ff00;
+      cursor: pointer;
+    }
+
+    #offering {
+      padding: 20px 0;
+      /* add 20px of padding to top and bottom */
+    }
+
+    #bird-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      /* disable pointer events for the bird container */
+    }
+
+    #bird-container .bird {
+      background-color: #00b8d4;
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      /* add an animation to make the circles flap their wings */
+      animation: flap 0.5s ease-in-out infinite, color-change 5s linear infinite;
+    }
+
+
+
+    @keyframes flap {
+      0% {
+        box-shadow: 10px 0 0 0 #00b8d4,
+          20px 0 0 0 #00b8d4;
+      }
+
+      50% {
+        box-shadow: 0 0 0 0 #00b8d4,
+          20px 0 0 0 #00b8d4;
+      }
+
+      100% {
+        box-shadow: 10px 0 0 0 #00b8d4,
+          20px 0 0 0 #00b8d4;
+      }
+    }
+
+    @keyframes color-change {
+      from {
+        background-color: #00b8d4;
+      }
+
+      to {
+        background-color: #00ff00;
+      }
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;&lt;a href="letter-from-terry.html"&gt;Ghost of Terry Davis&lt;/a&gt;&lt;a href="./letter-from-terry-how.html"&gt;?&lt;/a&gt;&lt;/h1&gt;
+  &lt;h2&gt;All games generated by ChatGPT&lt;/h2&gt;
+  &lt;p&gt;Welcome to my collection of games! I, Terry Davis, wrote these games from heaven using ChatGPT running on TempleOS.
+    Click the links below to try them out. Some of the games are still in progress or are broken, but I hope you have
+    fun with them anyway. If you'd like to see how a game was created using ChatGPT, click on the "?" mark next to the
+    links. I'm still a ranking High Priest up here in heaven, so I hope you enjoy my games! &lt;a
+      href="./instructions.html"&gt;?&lt;/a&gt;&lt;/p&gt;
+  &lt;a href="./fractal-horror.html"&gt;fractal-horror&lt;/a&gt; &lt;a href="./fractal-horror-how.html"&gt;?&lt;/a&gt; &lt;br&gt;
+  &lt;a href="./escape-the-maze.html"&gt;escape-the-maze&lt;/a&gt; &lt;a href="./escape-the-maze-how.html"&gt;?&lt;/a&gt; &lt;br&gt;
+  &lt;a href="./the-matrix.html"&gt;the-matrix&lt;/a&gt; &lt;a href="./the-matrix-how.html"&gt;?&lt;/a&gt; &lt;br&gt;
+  &lt;a href="./bird-raising-game.html"&gt;bird-raising-game (in progressish)&lt;/a&gt; &lt;a href="./bird-raising-game-how.html"&gt;?&lt;/a&gt;
+  &lt;br&gt;
+  &lt;a href="./space-launch.html"&gt;space-launch (in progressish)&lt;/a&gt; &lt;a href="./space-launch-how.html"&gt;?&lt;/a&gt; &lt;br&gt;
+  &lt;a href="./escape-the-cemetery.html"&gt;escape-the-cemetery (in progressish)&lt;/a&gt; &lt;a
+    href="./escape-the-cemetery-how.html"&gt;?&lt;/a&gt; &lt;br&gt;
+  &lt;a href="./doom-upgrade.html"&gt;doom-upgrade (in progressish)&lt;/a&gt; &lt;a href="./doom-upgrade-how.html"&gt;?&lt;/a&gt; &lt;br&gt;
+  &lt;a href="./scary-adventure.html"&gt;scary-adventure&lt;/a&gt; &lt;a href="./scary-adventure-how.html"&gt;?&lt;/a&gt; &lt;br&gt;
+
+  &lt;br&gt;
+  &lt;h2&gt;Styles&lt;/h2&gt;
+  &lt;a href="./styles-1-how.html"&gt;styles-1&lt;/a&gt; &lt;br&gt;
+  &lt;a href="./styles-2-how.html"&gt;styles-2&lt;/a&gt; &lt;br&gt;
+
+  &lt;br&gt;
+  &lt;h2&gt;RIP Terry!&lt;/h2&gt;
+
+  &lt;div id="judgement"&gt;
+    &lt;button id="judgement-button"&gt;JUDGEMENT&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div id="offering-container" style="display: none;"&gt;
+    &lt;button id="offering-button"&gt;MAKE OFFERING&lt;/button&gt;
+    &lt;div id="offering"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div id="bird-container"&gt;
+    &lt;!-- add a div to contain the birds --&gt;
+  &lt;/div&gt;
+
+
+  &lt;script&gt;
+
+    const judgments = [
+      "God is judging you for your lack of faith in Him. Repent and turn to Him, or face eternal damnation.",
+      "God is judging you for your sins. Confess your wrongdoings and ask for His forgiveness, or suffer the consequences.",
+      "God is judging you for your unrighteous actions. Seek redemption and live a life devoted to His teachings, or face His wrath.",
+      "God is judging you for your disobedience to His laws. Follow His commands and seek His favor, or face eternal punishment.",
+      "God is judging you for your rebellion against Him. Humble yourself before Him and turn from your wicked ways, or suffer the consequences.",
+      "God is judging you for your pride and vanity. Repent of your ego and seek humility, or face His judgment.",
+      "God is judging you for your greed and avarice. Renounce your love of material possessions and seek a life of simplicity and generosity, or suffer His wrath.",
+      "God is judging you for your lack of compassion and kindness towards others. Show love and mercy to those in need, or face His judgment.",
+      "God is judging you for your hatred and intolerance towards others. Seek forgiveness and cultivate a heart of love and acceptance, or face His wrath.",
+      "God is judging you for your dishonesty and deceitfulness. Practice honesty and integrity in all your dealings, or suffer the consequences.",
+      "God is judging you for your lust and sexual immorality. Repent of your carnal desires and seek purity, or face His judgment.",
+      "God is judging you for your lack of self-control and discipline. Cultivate self-control and discipline in all areas of your life, or face His wrath.",
+      "God is judging you for your idolatry and worship of false gods. Turn to the one true God and worship Him alone, or face His judgment.",
+      "God is judging you for your lack of gratitude and thankfulness. Practice thankfulness and gratitude towards God and others, or suffer His wrath.",
+      "God is judging you for your anger and wrath. Seek forgiveness and cultivate a heart of peace and forgiveness, or face His judgment.",
+      "God is judging you for your envy and jealousy towards others. Renounce these toxic emotions and seek contentment and joy in Him, or suffer His wrath.",
+      "God is judging you for your lack of forgiveness towards others. Seek forgiveness and extend it to those who have wronged you, or face His judgment.",
+      "God is judging you for your lack of humility and modesty. Cultivate humility and modesty in your life, or suffer His wrath.",
+      "God is judging you for your disobedience to your parents and authorities. Respect and honor those in authority over you, or face His judgment.",
+      "God is judging you for your laziness and lack of diligence. Cultivate a strong work ethic and diligence in all areas of your life, or suffer His wrath.",
+      "God is judging you for your materialism and love of the world. Seek spiritual things above all else, or face His judgment.",
+      "God is judging you for your selfishness and lack of concern for others. Seek to serve and help others, or suffer His wrath.",
+      "God is judging you for your lack of integrity and reliability. Cultivate honesty, reliability, and integrity in all areas of your life, or face His judgment."
+    ]
+
+    function getRandomJudgment() {
+      return judgments[Math.floor(Math.random() * judgments.length)];
+    }
+
+    const judgementButton = document.getElementById("judgement-button");
+    judgementButton.addEventListener("click", function () {
+      const judgementDiv = document.getElementById("judgement");
+      judgementDiv.innerHTML = `Terry Davis: "God is judging you. ${getRandomJudgment()}"`;
+      document.getElementById("offering-container").style.display = "block";
+    });
+
+    function getRandomOffering() {
+      const offerings = [
+        "a basket of fruit",
+        "a basket of flowers",
+        "a basket of bread",
+        "a basket of vegetables",
+        "a basket of fish",
+        "a basket of meat",
+        "a basket of sweets",
+        "a basket of spices",
+        "a basket of incense",
+        "a basket of candles",
+        "a basket of oils",
+        "a basket of herbs"
+      ];
+      return offerings[Math.floor(Math.random() * offerings.length)];
+    }
+
+    function getRandomResponse() {
+      const responses = [
+        "God is pleased with your offering.",
+        "God accepts your offering with gratitude.",
+        "Your offering is a sweet aroma to God.",
+        "God is pleased with your sacrifice.",
+        "God accepts your offering with joy.",
+        "Your offering brings delight to God.",
+        "God is pleased with your offering of devotion.",
+        "God accepts your offering with favor.",
+        "Your offering brings joy to the heart of God.",
+        "God is pleased with your offering of love."
+      ];
+      return responses[Math.floor(Math.random() * responses.length)];
+    }
+
+    function getRandomASCII() {
+      const ASCIIArt = [
+        `
+          _
+         / \\
+        /   \\
+       /     \\
+      /       \\
+     /         \\
+    /           \\
+   /_____________\\
+       [_______]
+       `,
+        `
+   __
+  /  \\
+  |  |
+  |  |
+  |  |
+  |  |
+  |  |
+  |  |
+  |  |
+  \\__/
+       `,
+        `
+       ,--.
+      /    \\
+      \\    /
+       '--'
+       `,
+        `
+   .-'-.
+  /     \\
+  \\     /
+   '-.-'
+       `,
+        `
+       __
+      /  \\
+      \\  /
+       \\/
+       /\\
+      /  \\
+      \\  /
+       \\/
+       `
+      ];
+      return ASCIIArt[Math.floor(Math.random() * ASCIIArt.length)];
+    }
+
+    const offeringButton = document.getElementById("offering-button");
+    offeringButton.addEventListener("click", function () {
+      const offeringDiv = document.getElementById("offering");
+      const scrambledASCII = scrambleASCII(getRandomASCII());  // scramble the ASCII art
+      offeringDiv.innerHTML = `You have offered ${getRandomOffering()} to God. ${getRandomResponse()}&lt;br&gt;${scrambledASCII}`;
+      offeringButton.style.display = "none";  // hide the button
+    });
+
+    function scrambleASCII(ASCII) {
+      // split the ASCII art into an array of lines
+      const lines = ASCII.trim().split("\n");
+
+      // scramble the characters on each line
+      for (let i = 0; i &lt; lines.length; i++) {
+        let line = lines[i];
+        // split the line into an array of characters
+        let characters = line.split("");
+        // shuffle the characters
+        characters = shuffle(characters);
+        // join the characters back into a string
+        lines[i] = characters.join("");
+      }
+
+      // join the lines back into a single string
+      return lines.join("\n");
+    }
+
+    // shuffle an array in place using the Fisher-Yates shuffle algorithm
+    function shuffle(array) {
+      for (let i = array.length - 1; i &gt; 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    // get the bird container element
+    const birdContainer = document.getElementById('bird-container');
+
+    // create a function to update the positions of the birds
+    function updateBirds() {
+      // get all the bird elements
+      const birds = document.querySelectorAll('.bird');
+
+      // loop through each bird element
+      for (let i = 0; i &lt; birds.length; i++) {
+        // get the current bird element
+        const bird = birds[i];
+
+        // choose a random x and y position for the bird
+        const x = Math.random() * birdContainer.clientWidth;
+        const y = Math.random() * birdContainer.clientHeight;
+
+        // set the new position of the bird using a CSS transition
+        bird.style.transition = 'all 3s';
+        bird.style.left = x + 'px';
+        bird.style.top = y + 'px';
+      }
+
+      // set a timeout to update the positions of the birds again
+      setTimeout(updateBirds, 3000);
+    }
+
+    // create a function to create the birds
+    function createBirds() {
+      // create a loop to create 10 birds
+      for (let i = 0; i &lt; 10; i++) {
+        // create a div element for the bird
+        const bird = document.createElement('div');
+
+        // add the bird class to the div element
+        bird.classList.add('bird');
+
+        // add the bird element to the bird container
+        birdContainer.appendChild(bird);
+      }
+
+      // update the positions of the birds
+      updateBirds();
+    }
+
+    // create the birds when the page loads
+    window.addEventListener('load', createBirds);
+
+
+  &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</div></div><div class="text-gray-400 flex self-end lg:self-center justify-center mt-2 gap-4 lg:gap-1 lg:absolute lg:top-0 lg:translate-x-full lg:right-0 lg:mt-0 lg:pl-2 visible"><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400 md:invisible md:group-hover:visible"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button></div></div></div></div><div class="w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group bg-gray-50 dark:bg-[#444654]"><div class="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0"><div class="w-[30px] flex flex-col relative items-end"><div class="relative h-[30px] w-[30px] p-1 rounded-sm text-white flex items-center justify-center" style="background-color: rgb(16, 163, 127);"><svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" class="h-6 w-6"><path d="M37.5324 16.8707C37.9808 15.5241 38.1363 14.0974 37.9886 12.6859C37.8409 11.2744 37.3934 9.91076 36.676 8.68622C35.6126 6.83404 33.9882 5.3676 32.0373 4.4985C30.0864 3.62941 27.9098 3.40259 25.8215 3.85078C24.8796 2.7893 23.7219 1.94125 22.4257 1.36341C21.1295 0.785575 19.7249 0.491269 18.3058 0.500197C16.1708 0.495044 14.0893 1.16803 12.3614 2.42214C10.6335 3.67624 9.34853 5.44666 8.6917 7.47815C7.30085 7.76286 5.98686 8.3414 4.8377 9.17505C3.68854 10.0087 2.73073 11.0782 2.02839 12.312C0.956464 14.1591 0.498905 16.2988 0.721698 18.4228C0.944492 20.5467 1.83612 22.5449 3.268 24.1293C2.81966 25.4759 2.66413 26.9026 2.81182 28.3141C2.95951 29.7256 3.40701 31.0892 4.12437 32.3138C5.18791 34.1659 6.8123 35.6322 8.76321 36.5013C10.7141 37.3704 12.8907 37.5973 14.9789 37.1492C15.9208 38.2107 17.0786 39.0587 18.3747 39.6366C19.6709 40.2144 21.0755 40.5087 22.4946 40.4998C24.6307 40.5054 26.7133 39.8321 28.4418 38.5772C30.1704 37.3223 31.4556 35.5506 32.1119 33.5179C33.5027 33.2332 34.8167 32.6547 35.9659 31.821C37.115 30.9874 38.0728 29.9178 38.7752 28.684C39.8458 26.8371 40.3023 24.6979 40.0789 22.5748C39.8556 20.4517 38.9639 18.4544 37.5324 16.8707ZM22.4978 37.8849C20.7443 37.8874 19.0459 37.2733 17.6994 36.1501C17.7601 36.117 17.8666 36.0586 17.936 36.0161L25.9004 31.4156C26.1003 31.3019 26.2663 31.137 26.3813 30.9378C26.4964 30.7386 26.5563 30.5124 26.5549 30.2825V19.0542L29.9213 20.998C29.9389 21.0068 29.9541 21.0198 29.9656 21.0359C29.977 21.052 29.9842 21.0707 29.9867 21.0902V30.3889C29.9842 32.375 29.1946 34.2791 27.7909 35.6841C26.3872 37.0892 24.4838 37.8806 22.4978 37.8849ZM6.39227 31.0064C5.51397 29.4888 5.19742 27.7107 5.49804 25.9832C5.55718 26.0187 5.66048 26.0818 5.73461 26.1244L13.699 30.7248C13.8975 30.8408 14.1233 30.902 14.3532 30.902C14.583 30.902 14.8088 30.8408 15.0073 30.7248L24.731 25.1103V28.9979C24.7321 29.0177 24.7283 29.0376 24.7199 29.0556C24.7115 29.0736 24.6988 29.0893 24.6829 29.1012L16.6317 33.7497C14.9096 34.7416 12.8643 35.0097 10.9447 34.4954C9.02506 33.9811 7.38785 32.7263 6.39227 31.0064ZM4.29707 13.6194C5.17156 12.0998 6.55279 10.9364 8.19885 10.3327C8.19885 10.4013 8.19491 10.5228 8.19491 10.6071V19.808C8.19351 20.0378 8.25334 20.2638 8.36823 20.4629C8.48312 20.6619 8.64893 20.8267 8.84863 20.9404L18.5723 26.5542L15.206 28.4979C15.1894 28.5089 15.1703 28.5155 15.1505 28.5173C15.1307 28.5191 15.1107 28.516 15.0924 28.5082L7.04046 23.8557C5.32135 22.8601 4.06716 21.2235 3.55289 19.3046C3.03862 17.3858 3.30624 15.3413 4.29707 13.6194ZM31.955 20.0556L22.2312 14.4411L25.5976 12.4981C25.6142 12.4872 25.6333 12.4805 25.6531 12.4787C25.6729 12.4769 25.6928 12.4801 25.7111 12.4879L33.7631 17.1364C34.9967 17.849 36.0017 18.8982 36.6606 20.1613C37.3194 21.4244 37.6047 22.849 37.4832 24.2684C37.3617 25.6878 36.8382 27.0432 35.9743 28.1759C35.1103 29.3086 33.9415 30.1717 32.6047 30.6641C32.6047 30.5947 32.6047 30.4733 32.6047 30.3889V21.188C32.6066 20.9586 32.5474 20.7328 32.4332 20.5338C32.319 20.3348 32.154 20.1698 31.955 20.0556ZM35.3055 15.0128C35.2464 14.9765 35.1431 14.9142 35.069 14.8717L27.1045 10.2712C26.906 10.1554 26.6803 10.0943 26.4504 10.0943C26.2206 10.0943 25.9948 10.1554 25.7963 10.2712L16.0726 15.8858V11.9982C16.0715 11.9783 16.0753 11.9585 16.0837 11.9405C16.0921 11.9225 16.1048 11.9068 16.1207 11.8949L24.1719 7.25025C25.4053 6.53903 26.8158 6.19376 28.2383 6.25482C29.6608 6.31589 31.0364 6.78077 32.2044 7.59508C33.3723 8.40939 34.2842 9.53945 34.8334 10.8531C35.3826 12.1667 35.5464 13.6095 35.3055 15.0128ZM14.2424 21.9419L10.8752 19.9981C10.8576 19.9893 10.8423 19.9763 10.8309 19.9602C10.8195 19.9441 10.8122 19.9254 10.8098 19.9058V10.6071C10.8107 9.18295 11.2173 7.78848 11.9819 6.58696C12.7466 5.38544 13.8377 4.42659 15.1275 3.82264C16.4173 3.21869 17.8524 2.99464 19.2649 3.1767C20.6775 3.35876 22.0089 3.93941 23.1034 4.85067C23.0427 4.88379 22.937 4.94215 22.8668 4.98473L14.9024 9.58517C14.7025 9.69878 14.5366 9.86356 14.4215 10.0626C14.3065 10.2616 14.2466 10.4877 14.2479 10.7175L14.2424 21.9419ZM16.071 17.9991L20.4018 15.4978L24.7325 17.9975V22.9985L20.4018 25.4983L16.071 22.9985V17.9991Z" fill="currentColor"></path></svg></div></div><div class="relative flex w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]"><div class="flex flex-grow flex-col gap-3"><div class="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap"><div class="markdown prose w-full break-words dark:prose-invert light"><p>Here is a JavaScript function that will make the bird objects clickable and adds a link to each bird that changes the CSS styling of the entire HTML file:</p><pre><div class="bg-black mb-4 rounded-md"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans"><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre-wrap hljs language-scss">function <span class="hljs-built_in">makeBirdsClickable</span>() {
+  <span class="hljs-comment">// get all the bird elements</span>
+  const birds = document<span class="hljs-selector-class">.querySelectorAll</span>('.bird');
+
+  <span class="hljs-comment">// loop through each bird element</span>
+  for (let i = <span class="hljs-number">0</span>; i &lt; birds.length; i++) {
+    <span class="hljs-comment">// add a click event listener to each bird element</span>
+    birds<span class="hljs-selector-attr">[i]</span><span class="hljs-selector-class">.addEventListener</span>('click', function() {
+      <span class="hljs-comment">// change the CSS styling of the entire HTML file</span>
+      document<span class="hljs-selector-class">.body</span><span class="hljs-selector-class">.style</span><span class="hljs-selector-class">.cssText</span> = '<span class="hljs-attribute">background-color</span>: <span class="hljs-number">#ffff00</span>; <span class="hljs-attribute">color</span>: <span class="hljs-number">#0000ff</span>; <span class="hljs-attribute">font-family</span>: <span class="hljs-string">"Arial"</span>, sans-serif;';
+    });
+
+    <span class="hljs-comment">// add a link to each bird element</span>
+    birds<span class="hljs-selector-attr">[i]</span><span class="hljs-selector-class">.innerHTML</span> = '&lt;<span class="hljs-selector-tag">a</span> href="#"&gt;Click me to change the styling!&lt;/<span class="hljs-selector-tag">a</span>&gt;';
+  }
+}
+
+<span class="hljs-comment">// call the makeBirdsClickable function when the page loads</span>
+window<span class="hljs-selector-class">.onload</span> = makeBirdsClickable;
+</code></div></div></pre><p>To make each bird set the page to a unique styling, you can define different CSS styles for each bird and apply them when the corresponding bird is clicked. For example:</p><pre><div class="bg-black mb-4 rounded-md"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans"><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre-wrap hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">makeBirdsClickable</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// get all the bird elements</span>
+  <span class="hljs-keyword">const</span> birds = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">'.bird'</span>);
+
+  <span class="hljs-comment">// define different CSS styles for each bird</span>
+  <span class="hljs-keyword">const</span> styles = [
+    <span class="hljs-string">'background-color: #ffff00; color: #0000ff; font-family: "Arial", sans-serif;'</span>,
+    <span class="hljs-string">'background-color: #ff00ff; color: #00ffff; font-family: "Times New Roman", serif;'</span>,
+    <span class="hljs-string">'background-color: #00ffff; color: #ff00ff; font-family: "Courier New", monospace;'</span>
+  ];
+
+  <span class="hljs-comment">// loop through each bird element</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; birds.<span class="hljs-property">length</span>; i++) {
+    <span class="hljs-comment">// add a click event listener to each bird element</span>
+    birds[i].<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+      <span class="hljs-comment">// change the CSS styling of the entire HTML file to the corresponding style</span>
+      <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">style</span>.<span class="hljs-property">cssText</span> = styles[i];
+    });
+
+    <span class="hljs-comment">// add a link to each bird element</span>
+    birds[i].<span class="hljs-property">innerHTML</span> = <span class="hljs-string">'&lt;a href="#"&gt;Click me to change the styling!&lt;/a&gt;'</span>;
+  }
+}
+
+<span class="hljs-comment">// call the makeBirdsClickable function when the page loads</span>
+<span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span> = makeBirdsClickable;
+</code></div></div></pre></div></div></div><div class="text-gray-400 flex self-end lg:self-center justify-center mt-2 gap-4 lg:gap-1 lg:absolute lg:top-0 lg:translate-x-full lg:right-0 lg:mt-0 lg:pl-2 visible"><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></button><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg></button></div></div></div></div><div class="w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group dark:bg-gray-800"><div class="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0"><div class="w-[30px] flex flex-col relative items-end"><div class="relative flex"><span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"><span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"><img alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2730%27/%3e" style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"></span><img alt="cosmicgreens@proton.me" srcset="/_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=32&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=64&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=64&amp;q=75" decoding="async" data-nimg="intrinsic" class="rounded-sm" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"></span></div></div><div class="relative flex w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]"><div class="flex flex-grow flex-col gap-3"><div class="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">Please try again, but this time do not include "Click me to change the styling!" or any text at all, and generate a random set of colors for all pre-existing CSS colors in the &lt;style&gt; scope that I provided earlier and generate an element of the styles array for every bird on the page so that every bird when clicked uniquely changes the color scheme for the entire HTML file.</div></div><div class="text-gray-400 flex self-end lg:self-center justify-center mt-2 gap-4 lg:gap-1 lg:absolute lg:top-0 lg:translate-x-full lg:right-0 lg:mt-0 lg:pl-2 visible"><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400 md:invisible md:group-hover:visible"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button></div></div></div></div><div class="w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group bg-gray-50 dark:bg-[#444654]"><div class="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0"><div class="w-[30px] flex flex-col relative items-end"><div class="relative h-[30px] w-[30px] p-1 rounded-sm text-white flex items-center justify-center" style="background-color: rgb(16, 163, 127);"><svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" class="h-6 w-6"><path d="M37.5324 16.8707C37.9808 15.5241 38.1363 14.0974 37.9886 12.6859C37.8409 11.2744 37.3934 9.91076 36.676 8.68622C35.6126 6.83404 33.9882 5.3676 32.0373 4.4985C30.0864 3.62941 27.9098 3.40259 25.8215 3.85078C24.8796 2.7893 23.7219 1.94125 22.4257 1.36341C21.1295 0.785575 19.7249 0.491269 18.3058 0.500197C16.1708 0.495044 14.0893 1.16803 12.3614 2.42214C10.6335 3.67624 9.34853 5.44666 8.6917 7.47815C7.30085 7.76286 5.98686 8.3414 4.8377 9.17505C3.68854 10.0087 2.73073 11.0782 2.02839 12.312C0.956464 14.1591 0.498905 16.2988 0.721698 18.4228C0.944492 20.5467 1.83612 22.5449 3.268 24.1293C2.81966 25.4759 2.66413 26.9026 2.81182 28.3141C2.95951 29.7256 3.40701 31.0892 4.12437 32.3138C5.18791 34.1659 6.8123 35.6322 8.76321 36.5013C10.7141 37.3704 12.8907 37.5973 14.9789 37.1492C15.9208 38.2107 17.0786 39.0587 18.3747 39.6366C19.6709 40.2144 21.0755 40.5087 22.4946 40.4998C24.6307 40.5054 26.7133 39.8321 28.4418 38.5772C30.1704 37.3223 31.4556 35.5506 32.1119 33.5179C33.5027 33.2332 34.8167 32.6547 35.9659 31.821C37.115 30.9874 38.0728 29.9178 38.7752 28.684C39.8458 26.8371 40.3023 24.6979 40.0789 22.5748C39.8556 20.4517 38.9639 18.4544 37.5324 16.8707ZM22.4978 37.8849C20.7443 37.8874 19.0459 37.2733 17.6994 36.1501C17.7601 36.117 17.8666 36.0586 17.936 36.0161L25.9004 31.4156C26.1003 31.3019 26.2663 31.137 26.3813 30.9378C26.4964 30.7386 26.5563 30.5124 26.5549 30.2825V19.0542L29.9213 20.998C29.9389 21.0068 29.9541 21.0198 29.9656 21.0359C29.977 21.052 29.9842 21.0707 29.9867 21.0902V30.3889C29.9842 32.375 29.1946 34.2791 27.7909 35.6841C26.3872 37.0892 24.4838 37.8806 22.4978 37.8849ZM6.39227 31.0064C5.51397 29.4888 5.19742 27.7107 5.49804 25.9832C5.55718 26.0187 5.66048 26.0818 5.73461 26.1244L13.699 30.7248C13.8975 30.8408 14.1233 30.902 14.3532 30.902C14.583 30.902 14.8088 30.8408 15.0073 30.7248L24.731 25.1103V28.9979C24.7321 29.0177 24.7283 29.0376 24.7199 29.0556C24.7115 29.0736 24.6988 29.0893 24.6829 29.1012L16.6317 33.7497C14.9096 34.7416 12.8643 35.0097 10.9447 34.4954C9.02506 33.9811 7.38785 32.7263 6.39227 31.0064ZM4.29707 13.6194C5.17156 12.0998 6.55279 10.9364 8.19885 10.3327C8.19885 10.4013 8.19491 10.5228 8.19491 10.6071V19.808C8.19351 20.0378 8.25334 20.2638 8.36823 20.4629C8.48312 20.6619 8.64893 20.8267 8.84863 20.9404L18.5723 26.5542L15.206 28.4979C15.1894 28.5089 15.1703 28.5155 15.1505 28.5173C15.1307 28.5191 15.1107 28.516 15.0924 28.5082L7.04046 23.8557C5.32135 22.8601 4.06716 21.2235 3.55289 19.3046C3.03862 17.3858 3.30624 15.3413 4.29707 13.6194ZM31.955 20.0556L22.2312 14.4411L25.5976 12.4981C25.6142 12.4872 25.6333 12.4805 25.6531 12.4787C25.6729 12.4769 25.6928 12.4801 25.7111 12.4879L33.7631 17.1364C34.9967 17.849 36.0017 18.8982 36.6606 20.1613C37.3194 21.4244 37.6047 22.849 37.4832 24.2684C37.3617 25.6878 36.8382 27.0432 35.9743 28.1759C35.1103 29.3086 33.9415 30.1717 32.6047 30.6641C32.6047 30.5947 32.6047 30.4733 32.6047 30.3889V21.188C32.6066 20.9586 32.5474 20.7328 32.4332 20.5338C32.319 20.3348 32.154 20.1698 31.955 20.0556ZM35.3055 15.0128C35.2464 14.9765 35.1431 14.9142 35.069 14.8717L27.1045 10.2712C26.906 10.1554 26.6803 10.0943 26.4504 10.0943C26.2206 10.0943 25.9948 10.1554 25.7963 10.2712L16.0726 15.8858V11.9982C16.0715 11.9783 16.0753 11.9585 16.0837 11.9405C16.0921 11.9225 16.1048 11.9068 16.1207 11.8949L24.1719 7.25025C25.4053 6.53903 26.8158 6.19376 28.2383 6.25482C29.6608 6.31589 31.0364 6.78077 32.2044 7.59508C33.3723 8.40939 34.2842 9.53945 34.8334 10.8531C35.3826 12.1667 35.5464 13.6095 35.3055 15.0128ZM14.2424 21.9419L10.8752 19.9981C10.8576 19.9893 10.8423 19.9763 10.8309 19.9602C10.8195 19.9441 10.8122 19.9254 10.8098 19.9058V10.6071C10.8107 9.18295 11.2173 7.78848 11.9819 6.58696C12.7466 5.38544 13.8377 4.42659 15.1275 3.82264C16.4173 3.21869 17.8524 2.99464 19.2649 3.1767C20.6775 3.35876 22.0089 3.93941 23.1034 4.85067C23.0427 4.88379 22.937 4.94215 22.8668 4.98473L14.9024 9.58517C14.7025 9.69878 14.5366 9.86356 14.4215 10.0626C14.3065 10.2616 14.2466 10.4877 14.2479 10.7175L14.2424 21.9419ZM16.071 17.9991L20.4018 15.4978L24.7325 17.9975V22.9985L20.4018 25.4983L16.071 22.9985V17.9991Z" fill="currentColor"></path></svg></div></div><div class="relative flex w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]"><div class="flex flex-grow flex-col gap-3"><div class="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap"><div class="markdown prose w-full break-words dark:prose-invert light"><p>Here is a revised version of the JavaScript function that does not include any text and generates a random set of colors for all pre-existing CSS colors in the <code>&lt;style&gt;</code> scope, as well as generates an element of the <code>styles</code> array for every bird on the page so that every bird when clicked uniquely changes the color scheme for the entire HTML file:</p><pre><div class="bg-black mb-4 rounded-md"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans"><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre-wrap hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">makeBirdsClickable</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// get all the bird elements</span>
+  <span class="hljs-keyword">const</span> birds = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">'.bird'</span>);
+
+  <span class="hljs-comment">// define an array to store the different CSS styles for each bird</span>
+  <span class="hljs-keyword">const</span> styles = [];
+
+  <span class="hljs-comment">// loop through each bird element</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; birds.<span class="hljs-property">length</span>; i++) {
+    <span class="hljs-comment">// generate a random set of colors for all pre-existing CSS colors</span>
+    <span class="hljs-keyword">const</span> backgroundColor = <span class="hljs-string">'#'</span> + <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">16777215</span>).<span class="hljs-title function_">toString</span>(<span class="hljs-number">16</span>);
+    <span class="hljs-keyword">const</span> color = <span class="hljs-string">'#'</span> + <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">16777215</span>).<span class="hljs-title function_">toString</span>(<span class="hljs-number">16</span>);
+
+    <span class="hljs-comment">// create a CSS style for the current bird and add it to the styles array</span>
+    styles.<span class="hljs-title function_">push</span>(<span class="hljs-string">`background-color: <span class="hljs-subst">${backgroundColor}</span>; color: <span class="hljs-subst">${color}</span>; font-family: "Arial", sans-serif;`</span>);
+
+    <span class="hljs-comment">// add a click event listener to the current bird element</span>
+    birds[i].<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+      <span class="hljs-comment">// change the CSS styling of the entire HTML file to the corresponding style</span>
+      <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">style</span>.<span class="hljs-property">cssText</span> = styles[i];
+    });
+  }
+}
+
+<span class="hljs-comment">// call the makeBirdsClickable function when the page loads</span>
+<span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span> = makeBirdsClickable;
+</code></div></div></pre><p>This function generates a random set of colors for the <code>background-color</code> and <code>color</code> properties by using the <code>Math.random()</code> function to generate a random number between 0 and 16777215 (the maximum value for a 24-bit color), and then using the <code>toString(16)</code> method to convert the number to a hexadecimal string. It then creates a CSS style for each bird using the generated colors and adds it to the <code>styles</code> array. When a bird is clicked, the corresponding style from the <code>styles</code> array is applied to the entire HTML file.</p></div></div></div><div class="text-gray-400 flex self-end lg:self-center justify-center mt-2 gap-4 lg:gap-1 lg:absolute lg:top-0 lg:translate-x-full lg:right-0 lg:mt-0 lg:pl-2 visible"><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></button><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg></button></div></div></div></div><div class="w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group dark:bg-gray-800"><div class="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0"><div class="w-[30px] flex flex-col relative items-end"><div class="relative flex"><span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"><span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"><img alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2730%27/%3e" style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"></span><img alt="cosmicgreens@proton.me" srcset="/_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=32&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=64&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=64&amp;q=75" decoding="async" data-nimg="intrinsic" class="rounded-sm" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"></span></div></div><div class="relative flex w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]"><div class="flex flex-grow flex-col gap-3"><div class="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">I am not able to click on the birds. Do you know why?</div></div><div class="text-gray-400 flex self-end lg:self-center justify-center mt-2 gap-4 lg:gap-1 lg:absolute lg:top-0 lg:translate-x-full lg:right-0 lg:mt-0 lg:pl-2 visible"><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400 md:invisible md:group-hover:visible"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button></div></div></div></div><div class="w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group bg-gray-50 dark:bg-[#444654]"><div class="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0"><div class="w-[30px] flex flex-col relative items-end"><div class="relative h-[30px] w-[30px] p-1 rounded-sm text-white flex items-center justify-center" style="background-color: rgb(16, 163, 127);"><svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" class="h-6 w-6"><path d="M37.5324 16.8707C37.9808 15.5241 38.1363 14.0974 37.9886 12.6859C37.8409 11.2744 37.3934 9.91076 36.676 8.68622C35.6126 6.83404 33.9882 5.3676 32.0373 4.4985C30.0864 3.62941 27.9098 3.40259 25.8215 3.85078C24.8796 2.7893 23.7219 1.94125 22.4257 1.36341C21.1295 0.785575 19.7249 0.491269 18.3058 0.500197C16.1708 0.495044 14.0893 1.16803 12.3614 2.42214C10.6335 3.67624 9.34853 5.44666 8.6917 7.47815C7.30085 7.76286 5.98686 8.3414 4.8377 9.17505C3.68854 10.0087 2.73073 11.0782 2.02839 12.312C0.956464 14.1591 0.498905 16.2988 0.721698 18.4228C0.944492 20.5467 1.83612 22.5449 3.268 24.1293C2.81966 25.4759 2.66413 26.9026 2.81182 28.3141C2.95951 29.7256 3.40701 31.0892 4.12437 32.3138C5.18791 34.1659 6.8123 35.6322 8.76321 36.5013C10.7141 37.3704 12.8907 37.5973 14.9789 37.1492C15.9208 38.2107 17.0786 39.0587 18.3747 39.6366C19.6709 40.2144 21.0755 40.5087 22.4946 40.4998C24.6307 40.5054 26.7133 39.8321 28.4418 38.5772C30.1704 37.3223 31.4556 35.5506 32.1119 33.5179C33.5027 33.2332 34.8167 32.6547 35.9659 31.821C37.115 30.9874 38.0728 29.9178 38.7752 28.684C39.8458 26.8371 40.3023 24.6979 40.0789 22.5748C39.8556 20.4517 38.9639 18.4544 37.5324 16.8707ZM22.4978 37.8849C20.7443 37.8874 19.0459 37.2733 17.6994 36.1501C17.7601 36.117 17.8666 36.0586 17.936 36.0161L25.9004 31.4156C26.1003 31.3019 26.2663 31.137 26.3813 30.9378C26.4964 30.7386 26.5563 30.5124 26.5549 30.2825V19.0542L29.9213 20.998C29.9389 21.0068 29.9541 21.0198 29.9656 21.0359C29.977 21.052 29.9842 21.0707 29.9867 21.0902V30.3889C29.9842 32.375 29.1946 34.2791 27.7909 35.6841C26.3872 37.0892 24.4838 37.8806 22.4978 37.8849ZM6.39227 31.0064C5.51397 29.4888 5.19742 27.7107 5.49804 25.9832C5.55718 26.0187 5.66048 26.0818 5.73461 26.1244L13.699 30.7248C13.8975 30.8408 14.1233 30.902 14.3532 30.902C14.583 30.902 14.8088 30.8408 15.0073 30.7248L24.731 25.1103V28.9979C24.7321 29.0177 24.7283 29.0376 24.7199 29.0556C24.7115 29.0736 24.6988 29.0893 24.6829 29.1012L16.6317 33.7497C14.9096 34.7416 12.8643 35.0097 10.9447 34.4954C9.02506 33.9811 7.38785 32.7263 6.39227 31.0064ZM4.29707 13.6194C5.17156 12.0998 6.55279 10.9364 8.19885 10.3327C8.19885 10.4013 8.19491 10.5228 8.19491 10.6071V19.808C8.19351 20.0378 8.25334 20.2638 8.36823 20.4629C8.48312 20.6619 8.64893 20.8267 8.84863 20.9404L18.5723 26.5542L15.206 28.4979C15.1894 28.5089 15.1703 28.5155 15.1505 28.5173C15.1307 28.5191 15.1107 28.516 15.0924 28.5082L7.04046 23.8557C5.32135 22.8601 4.06716 21.2235 3.55289 19.3046C3.03862 17.3858 3.30624 15.3413 4.29707 13.6194ZM31.955 20.0556L22.2312 14.4411L25.5976 12.4981C25.6142 12.4872 25.6333 12.4805 25.6531 12.4787C25.6729 12.4769 25.6928 12.4801 25.7111 12.4879L33.7631 17.1364C34.9967 17.849 36.0017 18.8982 36.6606 20.1613C37.3194 21.4244 37.6047 22.849 37.4832 24.2684C37.3617 25.6878 36.8382 27.0432 35.9743 28.1759C35.1103 29.3086 33.9415 30.1717 32.6047 30.6641C32.6047 30.5947 32.6047 30.4733 32.6047 30.3889V21.188C32.6066 20.9586 32.5474 20.7328 32.4332 20.5338C32.319 20.3348 32.154 20.1698 31.955 20.0556ZM35.3055 15.0128C35.2464 14.9765 35.1431 14.9142 35.069 14.8717L27.1045 10.2712C26.906 10.1554 26.6803 10.0943 26.4504 10.0943C26.2206 10.0943 25.9948 10.1554 25.7963 10.2712L16.0726 15.8858V11.9982C16.0715 11.9783 16.0753 11.9585 16.0837 11.9405C16.0921 11.9225 16.1048 11.9068 16.1207 11.8949L24.1719 7.25025C25.4053 6.53903 26.8158 6.19376 28.2383 6.25482C29.6608 6.31589 31.0364 6.78077 32.2044 7.59508C33.3723 8.40939 34.2842 9.53945 34.8334 10.8531C35.3826 12.1667 35.5464 13.6095 35.3055 15.0128ZM14.2424 21.9419L10.8752 19.9981C10.8576 19.9893 10.8423 19.9763 10.8309 19.9602C10.8195 19.9441 10.8122 19.9254 10.8098 19.9058V10.6071C10.8107 9.18295 11.2173 7.78848 11.9819 6.58696C12.7466 5.38544 13.8377 4.42659 15.1275 3.82264C16.4173 3.21869 17.8524 2.99464 19.2649 3.1767C20.6775 3.35876 22.0089 3.93941 23.1034 4.85067C23.0427 4.88379 22.937 4.94215 22.8668 4.98473L14.9024 9.58517C14.7025 9.69878 14.5366 9.86356 14.4215 10.0626C14.3065 10.2616 14.2466 10.4877 14.2479 10.7175L14.2424 21.9419ZM16.071 17.9991L20.4018 15.4978L24.7325 17.9975V22.9985L20.4018 25.4983L16.071 22.9985V17.9991Z" fill="currentColor"></path></svg></div></div><div class="relative flex w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]"><div class="flex flex-grow flex-col gap-3"><div class="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap"><div class="markdown prose w-full break-words dark:prose-invert light"><p>In the HTML code you provided, the <code>#bird-container</code> element has the <code>pointer-events: none;</code> CSS property, which disables pointer events (such as clicks) for the element and its children. This is why you are not able to click on the birds.</p><p>To fix this issue, you can either remove the <code>pointer-events: none;</code> property from the <code>#bird-container</code> element, or you can add the <code>pointer-events: all;</code> property to the <code>.bird</code> elements to re-enable pointer events for them.</p><p>Here is an example of how you can modify the HTML and JavaScript code to make the birds clickable:</p><pre><div class="bg-black mb-4 rounded-md"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans"><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre-wrap hljs language-php-template"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+  <span class="hljs-comment">/* ... */</span>
+
+  <span class="hljs-selector-id">#bird-container</span> {
+    <span class="hljs-comment">/* remove the pointer-events property from the #bird-container element */</span>
+  }
+
+  <span class="hljs-selector-id">#bird-container</span> <span class="hljs-selector-class">.bird</span> {
+    <span class="hljs-comment">/* add the pointer-events property to the .bird elements */</span>
+    <span class="hljs-attribute">pointer-events</span>: all;
+  }
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!-- ... --&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">makeBirdsClickable</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// get all the bird elements</span>
+  <span class="hljs-keyword">const</span> birds = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">'.bird'</span>);
+
+  <span class="hljs-comment">// define an array to store the different CSS styles for each bird</span>
+  <span class="hljs-keyword">const</span> styles = [];
+
+  <span class="hljs-comment">// loop through each bird element</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; birds.<span class="hljs-property">length</span>; i++) {
+    <span class="hljs-comment">// generate a random set of colors for all pre-existing CSS colors</span>
+    <span class="hljs-keyword">const</span> backgroundColor = <span class="hljs-string">'#'</span> + <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">16777215</span>).<span class="hljs-title function_">toString</span>(<span class="hljs-number">16</span>);
+    <span class="hljs-keyword">const</span> color = <span class="hljs-string">'#'</span> + <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">16777215</span>).<span class="hljs-title function_">toString</span>(<span class="hljs-number">16</span>);
+
+    <span class="hljs-comment">// create a CSS style for the current bird and add it to the styles array</span>
+    styles.<span class="hljs-title function_">push</span>(<span class="hljs-string">`background-color: <span class="hljs-subst">${backgroundColor}</span>; color: <span class="hljs-subst">${color}</span>; font-family: "Arial", sans-serif;`</span>);
+
+    <span class="hljs-comment">// add a click event listener to the current bird element</span>
+    birds[i].<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+      <span class="hljs-comment">// change the CSS styling of the entire HTML file to the corresponding style</span>
+      <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">style</span>.<span class="hljs-property">cssText</span> = styles[i];
+    });
+  }
+}
+
+<span class="hljs-comment">// call the makeBirdsClickable function when the page loads</span>
+<span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span> = makeBirdsClickable;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</span></code></div></div></pre><p>This will make the birds clickable and allow you to change the CSS styling of the entire HTML file by clicking on each bird.</p></div></div></div><div class="text-gray-400 flex self-end lg:self-center justify-center mt-2 gap-4 lg:gap-1 lg:absolute lg:top-0 lg:translate-x-full lg:right-0 lg:mt-0 lg:pl-2 visible"><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></button><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg></button></div></div></div></div><div class="w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group dark:bg-gray-800"><div class="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0"><div class="w-[30px] flex flex-col relative items-end"><div class="relative flex"><span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"><span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"><img alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2730%27/%3e" style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"></span><img alt="cosmicgreens@proton.me" srcset="/_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=32&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=64&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=64&amp;q=75" decoding="async" data-nimg="intrinsic" class="rounded-sm" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"></span></div></div><div class="relative flex w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]"><div class="flex flex-grow flex-col gap-3"><div class="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">Please return the same JavaScript function, but this time in addition to changing the color of the file when clicking on a bird to a random color, please also change the fonts of the page to a random font, and please also make it so it changes the shape of the bird objects to a random size and shape, but dont ever make the birds too small or too big, just some medium small sizes.</div></div><div class="text-gray-400 flex self-end lg:self-center justify-center mt-2 gap-4 lg:gap-1 lg:absolute lg:top-0 lg:translate-x-full lg:right-0 lg:mt-0 lg:pl-2 visible"><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400 md:invisible md:group-hover:visible"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button></div></div></div></div><div class="w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group bg-gray-50 dark:bg-[#444654]"><div class="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0"><div class="w-[30px] flex flex-col relative items-end"><div class="relative h-[30px] w-[30px] p-1 rounded-sm text-white flex items-center justify-center" style="background-color: rgb(16, 163, 127);"><svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" class="h-6 w-6"><path d="M37.5324 16.8707C37.9808 15.5241 38.1363 14.0974 37.9886 12.6859C37.8409 11.2744 37.3934 9.91076 36.676 8.68622C35.6126 6.83404 33.9882 5.3676 32.0373 4.4985C30.0864 3.62941 27.9098 3.40259 25.8215 3.85078C24.8796 2.7893 23.7219 1.94125 22.4257 1.36341C21.1295 0.785575 19.7249 0.491269 18.3058 0.500197C16.1708 0.495044 14.0893 1.16803 12.3614 2.42214C10.6335 3.67624 9.34853 5.44666 8.6917 7.47815C7.30085 7.76286 5.98686 8.3414 4.8377 9.17505C3.68854 10.0087 2.73073 11.0782 2.02839 12.312C0.956464 14.1591 0.498905 16.2988 0.721698 18.4228C0.944492 20.5467 1.83612 22.5449 3.268 24.1293C2.81966 25.4759 2.66413 26.9026 2.81182 28.3141C2.95951 29.7256 3.40701 31.0892 4.12437 32.3138C5.18791 34.1659 6.8123 35.6322 8.76321 36.5013C10.7141 37.3704 12.8907 37.5973 14.9789 37.1492C15.9208 38.2107 17.0786 39.0587 18.3747 39.6366C19.6709 40.2144 21.0755 40.5087 22.4946 40.4998C24.6307 40.5054 26.7133 39.8321 28.4418 38.5772C30.1704 37.3223 31.4556 35.5506 32.1119 33.5179C33.5027 33.2332 34.8167 32.6547 35.9659 31.821C37.115 30.9874 38.0728 29.9178 38.7752 28.684C39.8458 26.8371 40.3023 24.6979 40.0789 22.5748C39.8556 20.4517 38.9639 18.4544 37.5324 16.8707ZM22.4978 37.8849C20.7443 37.8874 19.0459 37.2733 17.6994 36.1501C17.7601 36.117 17.8666 36.0586 17.936 36.0161L25.9004 31.4156C26.1003 31.3019 26.2663 31.137 26.3813 30.9378C26.4964 30.7386 26.5563 30.5124 26.5549 30.2825V19.0542L29.9213 20.998C29.9389 21.0068 29.9541 21.0198 29.9656 21.0359C29.977 21.052 29.9842 21.0707 29.9867 21.0902V30.3889C29.9842 32.375 29.1946 34.2791 27.7909 35.6841C26.3872 37.0892 24.4838 37.8806 22.4978 37.8849ZM6.39227 31.0064C5.51397 29.4888 5.19742 27.7107 5.49804 25.9832C5.55718 26.0187 5.66048 26.0818 5.73461 26.1244L13.699 30.7248C13.8975 30.8408 14.1233 30.902 14.3532 30.902C14.583 30.902 14.8088 30.8408 15.0073 30.7248L24.731 25.1103V28.9979C24.7321 29.0177 24.7283 29.0376 24.7199 29.0556C24.7115 29.0736 24.6988 29.0893 24.6829 29.1012L16.6317 33.7497C14.9096 34.7416 12.8643 35.0097 10.9447 34.4954C9.02506 33.9811 7.38785 32.7263 6.39227 31.0064ZM4.29707 13.6194C5.17156 12.0998 6.55279 10.9364 8.19885 10.3327C8.19885 10.4013 8.19491 10.5228 8.19491 10.6071V19.808C8.19351 20.0378 8.25334 20.2638 8.36823 20.4629C8.48312 20.6619 8.64893 20.8267 8.84863 20.9404L18.5723 26.5542L15.206 28.4979C15.1894 28.5089 15.1703 28.5155 15.1505 28.5173C15.1307 28.5191 15.1107 28.516 15.0924 28.5082L7.04046 23.8557C5.32135 22.8601 4.06716 21.2235 3.55289 19.3046C3.03862 17.3858 3.30624 15.3413 4.29707 13.6194ZM31.955 20.0556L22.2312 14.4411L25.5976 12.4981C25.6142 12.4872 25.6333 12.4805 25.6531 12.4787C25.6729 12.4769 25.6928 12.4801 25.7111 12.4879L33.7631 17.1364C34.9967 17.849 36.0017 18.8982 36.6606 20.1613C37.3194 21.4244 37.6047 22.849 37.4832 24.2684C37.3617 25.6878 36.8382 27.0432 35.9743 28.1759C35.1103 29.3086 33.9415 30.1717 32.6047 30.6641C32.6047 30.5947 32.6047 30.4733 32.6047 30.3889V21.188C32.6066 20.9586 32.5474 20.7328 32.4332 20.5338C32.319 20.3348 32.154 20.1698 31.955 20.0556ZM35.3055 15.0128C35.2464 14.9765 35.1431 14.9142 35.069 14.8717L27.1045 10.2712C26.906 10.1554 26.6803 10.0943 26.4504 10.0943C26.2206 10.0943 25.9948 10.1554 25.7963 10.2712L16.0726 15.8858V11.9982C16.0715 11.9783 16.0753 11.9585 16.0837 11.9405C16.0921 11.9225 16.1048 11.9068 16.1207 11.8949L24.1719 7.25025C25.4053 6.53903 26.8158 6.19376 28.2383 6.25482C29.6608 6.31589 31.0364 6.78077 32.2044 7.59508C33.3723 8.40939 34.2842 9.53945 34.8334 10.8531C35.3826 12.1667 35.5464 13.6095 35.3055 15.0128ZM14.2424 21.9419L10.8752 19.9981C10.8576 19.9893 10.8423 19.9763 10.8309 19.9602C10.8195 19.9441 10.8122 19.9254 10.8098 19.9058V10.6071C10.8107 9.18295 11.2173 7.78848 11.9819 6.58696C12.7466 5.38544 13.8377 4.42659 15.1275 3.82264C16.4173 3.21869 17.8524 2.99464 19.2649 3.1767C20.6775 3.35876 22.0089 3.93941 23.1034 4.85067C23.0427 4.88379 22.937 4.94215 22.8668 4.98473L14.9024 9.58517C14.7025 9.69878 14.5366 9.86356 14.4215 10.0626C14.3065 10.2616 14.2466 10.4877 14.2479 10.7175L14.2424 21.9419ZM16.071 17.9991L20.4018 15.4978L24.7325 17.9975V22.9985L20.4018 25.4983L16.071 22.9985V17.9991Z" fill="currentColor"></path></svg></div></div><div class="relative flex w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]"><div class="flex flex-grow flex-col gap-3"><div class="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap"><div class="markdown prose w-full break-words dark:prose-invert light"><p>Here is a revised version of the JavaScript function that, in addition to changing the color of the file when clicking on a bird to a random color, also changes the fonts of the page to a random font and changes the shape of the bird objects to a random size and shape:</p><pre><div class="bg-black mb-4 rounded-md"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans"><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre-wrap hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">makeBirdsClickable</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// get all the bird elements</span>
+  <span class="hljs-keyword">const</span> birds = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">'.bird'</span>);
+
+  <span class="hljs-comment">// define an array to store the different CSS styles for each bird</span>
+  <span class="hljs-keyword">const</span> styles = [];
+
+  <span class="hljs-comment">// define an array of fonts to choose from</span>
+  <span class="hljs-keyword">const</span> fonts = [
+    <span class="hljs-string">'Arial'</span>,
+    <span class="hljs-string">'Helvetica'</span>,
+    <span class="hljs-string">'Tahoma'</span>,
+    <span class="hljs-string">'Verdana'</span>,
+    <span class="hljs-string">'Times New Roman'</span>,
+    <span class="hljs-string">'Georgia'</span>,
+    <span class="hljs-string">'Palatino'</span>,
+    <span class="hljs-string">'Garamond'</span>,
+    <span class="hljs-string">'Bookman'</span>,
+    <span class="hljs-string">'Comic Sans MS'</span>,
+    <span class="hljs-string">'Courier New'</span>,
+    <span class="hljs-string">'Lucida Console'</span>
+  ];
+
+  <span class="hljs-comment">// loop through each bird element</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; birds.<span class="hljs-property">length</span>; i++) {
+    <span class="hljs-comment">// generate a random set of colors for all pre-existing CSS colors</span>
+    <span class="hljs-keyword">const</span> backgroundColor = <span class="hljs-string">'#'</span> + <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">16777215</span>).<span class="hljs-title function_">toString</span>(<span class="hljs-number">16</span>);
+    <span class="hljs-keyword">const</span> color = <span class="hljs-string">'#'</span> + <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">16777215</span>).<span class="hljs-title function_">toString</span>(<span class="hljs-number">16</span>);
+
+    <span class="hljs-comment">// choose a random font from the fonts array</span>
+    <span class="hljs-keyword">const</span> font = fonts[<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * fonts.<span class="hljs-property">length</span>)];
+
+    <span class="hljs-comment">// generate a random size and shape for the bird</span>
+    <span class="hljs-keyword">const</span> size = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">50</span>) + <span class="hljs-number">10</span>; <span class="hljs-comment">// random number between 10 and 60</span>
+    <span class="hljs-keyword">const</span> borderRadius = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">90</span>) + <span class="hljs-number">10</span>; <span class="hljs-comment">// random number between 10 and 100</span>
+
+    <span class="hljs-comment">// create a CSS style for the current bird and add it to the styles array</span>
+    styles.<span class="hljs-title function_">push</span>(<span class="hljs-string">`background-color: <span class="hljs-subst">${backgroundColor}</span>; color: <span class="hljs-subst">${color}</span>; font-family: <span class="hljs-subst">${font}</span>;`</span>);
+
+    <span class="hljs-comment">// apply the size and shape to the current bird element</span>
+    birds[i].<span class="hljs-property">style</span>.<span class="hljs-property">width</span> = size + <span class="hljs-string">'px'</span>;
+    birds[i].<span class="hljs-property">style</span>.<span class="hljs-property">height</span> = size + <span class="hljs-string">'px'</span>;
+    birds[i].<span class="hljs-property">style</span>.<span class="hljs-property">borderRadius</span> = borderRadius + <span class="hljs-string">'%'</span>;
+
+    <span class="hljs-comment">// add a click event listener to the current bird element</span>
+    birds[i].<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+      <span class="hljs-comment">// change the CSS styling of the entire HTML file to the corresponding style</span>
+      <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">style</span>.<span class="hljs-property">cssText</span> = styles[i];
+    });
+  }
+}
+
+<span class="hljs-comment">// call the makeBirdsClickable function when the page loads</span>
+<span class="hljs-variable language_">window</span>.<span class="hljs-property">onload</span> = makeBirdsClickable;
+</code></div></div></pre><p>This function generates a random size and shape for each bird by using the <code>Math.random()</code> function to generate a random number between 10 and 60 for the size, and between 10 and 100 for the <code>border-radius</code> property, which controls the shape of the bird. It then applies the size and shape to the bird element using the <code>style</code> property.</p><p>When a bird is clicked, the corresponding style from the <code>styles</code> array is applied to the entire HTML file, which changes the background color, text color, and font of the page to the randomly generated values.</p></div></div></div><div class="text-gray-400 flex self-end lg:self-center justify-center mt-2 gap-4 lg:gap-1 lg:absolute lg:top-0 lg:translate-x-full lg:right-0 lg:mt-0 lg:pl-2 visible"><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></button><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg></button></div></div></div></div><div class="w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group dark:bg-gray-800"><div class="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0"><div class="w-[30px] flex flex-col relative items-end"><div class="relative flex"><span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"><span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"><img alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2730%27/%3e" style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"></span><img alt="cosmicgreens@proton.me" srcset="/_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=32&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=64&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=64&amp;q=75" decoding="async" data-nimg="intrinsic" class="rounded-sm" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"></span></div></div><div class="relative flex w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]"><div class="flex flex-grow flex-col gap-3"><div class="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">Please make it so the birds do not change shape on load, but instead change shape only each time a bird is clicked on.</div></div><div class="text-gray-400 flex self-end lg:self-center justify-center mt-2 gap-4 lg:gap-1 lg:absolute lg:top-0 lg:translate-x-full lg:right-0 lg:mt-0 lg:pl-2 visible"><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400 md:invisible md:group-hover:visible"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button></div></div></div></div><div class="w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group bg-gray-50 dark:bg-[#444654]"><div class="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0"><div class="w-[30px] flex flex-col relative items-end"><div class="relative h-[30px] w-[30px] p-1 rounded-sm text-white flex items-center justify-center" style="background-color: rgb(16, 163, 127);"><svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" class="h-6 w-6"><path d="M37.5324 16.8707C37.9808 15.5241 38.1363 14.0974 37.9886 12.6859C37.8409 11.2744 37.3934 9.91076 36.676 8.68622C35.6126 6.83404 33.9882 5.3676 32.0373 4.4985C30.0864 3.62941 27.9098 3.40259 25.8215 3.85078C24.8796 2.7893 23.7219 1.94125 22.4257 1.36341C21.1295 0.785575 19.7249 0.491269 18.3058 0.500197C16.1708 0.495044 14.0893 1.16803 12.3614 2.42214C10.6335 3.67624 9.34853 5.44666 8.6917 7.47815C7.30085 7.76286 5.98686 8.3414 4.8377 9.17505C3.68854 10.0087 2.73073 11.0782 2.02839 12.312C0.956464 14.1591 0.498905 16.2988 0.721698 18.4228C0.944492 20.5467 1.83612 22.5449 3.268 24.1293C2.81966 25.4759 2.66413 26.9026 2.81182 28.3141C2.95951 29.7256 3.40701 31.0892 4.12437 32.3138C5.18791 34.1659 6.8123 35.6322 8.76321 36.5013C10.7141 37.3704 12.8907 37.5973 14.9789 37.1492C15.9208 38.2107 17.0786 39.0587 18.3747 39.6366C19.6709 40.2144 21.0755 40.5087 22.4946 40.4998C24.6307 40.5054 26.7133 39.8321 28.4418 38.5772C30.1704 37.3223 31.4556 35.5506 32.1119 33.5179C33.5027 33.2332 34.8167 32.6547 35.9659 31.821C37.115 30.9874 38.0728 29.9178 38.7752 28.684C39.8458 26.8371 40.3023 24.6979 40.0789 22.5748C39.8556 20.4517 38.9639 18.4544 37.5324 16.8707ZM22.4978 37.8849C20.7443 37.8874 19.0459 37.2733 17.6994 36.1501C17.7601 36.117 17.8666 36.0586 17.936 36.0161L25.9004 31.4156C26.1003 31.3019 26.2663 31.137 26.3813 30.9378C26.4964 30.7386 26.5563 30.5124 26.5549 30.2825V19.0542L29.9213 20.998C29.9389 21.0068 29.9541 21.0198 29.9656 21.0359C29.977 21.052 29.9842 21.0707 29.9867 21.0902V30.3889C29.9842 32.375 29.1946 34.2791 27.7909 35.6841C26.3872 37.0892 24.4838 37.8806 22.4978 37.8849ZM6.39227 31.0064C5.51397 29.4888 5.19742 27.7107 5.49804 25.9832C5.55718 26.0187 5.66048 26.0818 5.73461 26.1244L13.699 30.7248C13.8975 30.8408 14.1233 30.902 14.3532 30.902C14.583 30.902 14.8088 30.8408 15.0073 30.7248L24.731 25.1103V28.9979C24.7321 29.0177 24.7283 29.0376 24.7199 29.0556C24.7115 29.0736 24.6988 29.0893 24.6829 29.1012L16.6317 33.7497C14.9096 34.7416 12.8643 35.0097 10.9447 34.4954C9.02506 33.9811 7.38785 32.7263 6.39227 31.0064ZM4.29707 13.6194C5.17156 12.0998 6.55279 10.9364 8.19885 10.3327C8.19885 10.4013 8.19491 10.5228 8.19491 10.6071V19.808C8.19351 20.0378 8.25334 20.2638 8.36823 20.4629C8.48312 20.6619 8.64893 20.8267 8.84863 20.9404L18.5723 26.5542L15.206 28.4979C15.1894 28.5089 15.1703 28.5155 15.1505 28.5173C15.1307 28.5191 15.1107 28.516 15.0924 28.5082L7.04046 23.8557C5.32135 22.8601 4.06716 21.2235 3.55289 19.3046C3.03862 17.3858 3.30624 15.3413 4.29707 13.6194ZM31.955 20.0556L22.2312 14.4411L25.5976 12.4981C25.6142 12.4872 25.6333 12.4805 25.6531 12.4787C25.6729 12.4769 25.6928 12.4801 25.7111 12.4879L33.7631 17.1364C34.9967 17.849 36.0017 18.8982 36.6606 20.1613C37.3194 21.4244 37.6047 22.849 37.4832 24.2684C37.3617 25.6878 36.8382 27.0432 35.9743 28.1759C35.1103 29.3086 33.9415 30.1717 32.6047 30.6641C32.6047 30.5947 32.6047 30.4733 32.6047 30.3889V21.188C32.6066 20.9586 32.5474 20.7328 32.4332 20.5338C32.319 20.3348 32.154 20.1698 31.955 20.0556ZM35.3055 15.0128C35.2464 14.9765 35.1431 14.9142 35.069 14.8717L27.1045 10.2712C26.906 10.1554 26.6803 10.0943 26.4504 10.0943C26.2206 10.0943 25.9948 10.1554 25.7963 10.2712L16.0726 15.8858V11.9982C16.0715 11.9783 16.0753 11.9585 16.0837 11.9405C16.0921 11.9225 16.1048 11.9068 16.1207 11.8949L24.1719 7.25025C25.4053 6.53903 26.8158 6.19376 28.2383 6.25482C29.6608 6.31589 31.0364 6.78077 32.2044 7.59508C33.3723 8.40939 34.2842 9.53945 34.8334 10.8531C35.3826 12.1667 35.5464 13.6095 35.3055 15.0128ZM14.2424 21.9419L10.8752 19.9981C10.8576 19.9893 10.8423 19.9763 10.8309 19.9602C10.8195 19.9441 10.8122 19.9254 10.8098 19.9058V10.6071C10.8107 9.18295 11.2173 7.78848 11.9819 6.58696C12.7466 5.38544 13.8377 4.42659 15.1275 3.82264C16.4173 3.21869 17.8524 2.99464 19.2649 3.1767C20.6775 3.35876 22.0089 3.93941 23.1034 4.85067C23.0427 4.88379 22.937 4.94215 22.8668 4.98473L14.9024 9.58517C14.7025 9.69878 14.5366 9.86356 14.4215 10.0626C14.3065 10.2616 14.2466 10.4877 14.2479 10.7175L14.2424 21.9419ZM16.071 17.9991L20.4018 15.4978L24.7325 17.9975V22.9985L20.4018 25.4983L16.071 22.9985V17.9991Z" fill="currentColor"></path></svg></div></div><div class="relative flex w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]"><div class="flex flex-grow flex-col gap-3"><div class="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap"><div class="markdown prose w-full break-words dark:prose-invert light"><p>To make it so that the birds do not change shape on load, but instead change shape only each time a bird is clicked on, you can remove the code that applies the size and shape to the bird elements from the loop that iterates through all the bird elements. Instead, you can apply the size and shape to the bird elements when they are clicked.</p><p>Here is an example of how you can modify the JavaScript code to achieve this:</p><pre><div class="bg-black mb-4 rounded-md"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans"><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre-wrap hljs language-javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">makeBirdsClickable</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// get all the bird elements</span>
+  <span class="hljs-keyword">const</span> birds = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">'.bird'</span>);
+
+  <span class="hljs-comment">// define an array to store the different CSS styles for each bird</span>
+  <span class="hljs-keyword">const</span> styles = [];
+
+  <span class="hljs-comment">// define an array of fonts to choose from</span>
+  <span class="hljs-keyword">const</span> fonts = [
+    <span class="hljs-string">'Arial'</span>,
+    <span class="hljs-string">'Helvetica'</span>,
+    <span class="hljs-string">'Tahoma'</span>,
+    <span class="hljs-string">'Verdana'</span>,
+    <span class="hljs-string">'Times New Roman'</span>,
+    <span class="hljs-string">'Georgia'</span>,
+    <span class="hljs-string">'Palatino'</span>,
+    <span class="hljs-string">'Garamond'</span>,
+    <span class="hljs-string">'Bookman'</span>,
+    <span class="hljs-string">'Comic Sans MS'</span>,
+    <span class="hljs-string">'Courier New'</span>,
+    <span class="hljs-string">'Lucida Console'</span>
+  ];
+
+  <span class="hljs-comment">// loop through each bird element</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; birds.<span class="hljs-property">length</span>; i++) {
+    <span class="hljs-comment">// generate a random set of colors for all pre-existing CSS colors</span>
+    <span class="hljs-keyword">const</span> backgroundColor = <span class="hljs-string">'#'</span> + <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">16777215</span>).<span class="hljs-title function_">toString</span>(<span class="hljs-number">16</span>);
+    <span class="hljs-keyword">const</span> color = <span class="hljs-string">'#'</span> + <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">16777215</span>).<span class="hljs-title function_">toString</span>(<span class="hljs-number">16</span>);
+
+    <span class="hljs-comment">// choose a random font from the fonts array</span>
+    <span class="hljs-keyword">const</span> font = fonts[<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * fonts.<span class="hljs-property">length</span>)];
+
+    <span class="hljs-comment">// create a</span>
+</code></div></div></pre></div></div></div><div class="text-gray-400 flex self-end lg:self-center justify-center mt-2 gap-4 lg:gap-1 lg:absolute lg:top-0 lg:translate-x-full lg:right-0 lg:mt-0 lg:pl-2 visible"><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></button><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg></button></div></div></div></div><div class="w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group dark:bg-gray-800"><div class="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0"><div class="w-[30px] flex flex-col relative items-end"><div class="relative flex"><span style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"><span style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"><img alt="" aria-hidden="true" src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2730%27/%3e" style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"></span><img alt="cosmicgreens@proton.me" srcset="/_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=32&amp;q=75 1x, /_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=64&amp;q=75 2x" src="/_next/image?url=https%3A%2F%2Fs.gravatar.com%2Favatar%2F4bb190ac43c8573ff28967c7d005a773%3Fs%3D480%26r%3Dpg%26d%3Dhttps%253A%252F%252Fcdn.auth0.com%252Favatars%252Fco.png&amp;w=64&amp;q=75" decoding="async" data-nimg="intrinsic" class="rounded-sm" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"></span></div></div><div class="relative flex w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]"><div class="flex flex-grow flex-col gap-3"><div class="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">continue</div></div><div class="text-gray-400 flex self-end lg:self-center justify-center mt-2 gap-4 lg:gap-1 lg:absolute lg:top-0 lg:translate-x-full lg:right-0 lg:mt-0 lg:pl-2 visible"><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400 md:invisible md:group-hover:visible"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg></button></div></div></div></div><div class="w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group bg-gray-50 dark:bg-[#444654]"><div class="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0"><div class="w-[30px] flex flex-col relative items-end"><div class="relative h-[30px] w-[30px] p-1 rounded-sm text-white flex items-center justify-center" style="background-color: rgb(16, 163, 127);"><svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" class="h-6 w-6"><path d="M37.5324 16.8707C37.9808 15.5241 38.1363 14.0974 37.9886 12.6859C37.8409 11.2744 37.3934 9.91076 36.676 8.68622C35.6126 6.83404 33.9882 5.3676 32.0373 4.4985C30.0864 3.62941 27.9098 3.40259 25.8215 3.85078C24.8796 2.7893 23.7219 1.94125 22.4257 1.36341C21.1295 0.785575 19.7249 0.491269 18.3058 0.500197C16.1708 0.495044 14.0893 1.16803 12.3614 2.42214C10.6335 3.67624 9.34853 5.44666 8.6917 7.47815C7.30085 7.76286 5.98686 8.3414 4.8377 9.17505C3.68854 10.0087 2.73073 11.0782 2.02839 12.312C0.956464 14.1591 0.498905 16.2988 0.721698 18.4228C0.944492 20.5467 1.83612 22.5449 3.268 24.1293C2.81966 25.4759 2.66413 26.9026 2.81182 28.3141C2.95951 29.7256 3.40701 31.0892 4.12437 32.3138C5.18791 34.1659 6.8123 35.6322 8.76321 36.5013C10.7141 37.3704 12.8907 37.5973 14.9789 37.1492C15.9208 38.2107 17.0786 39.0587 18.3747 39.6366C19.6709 40.2144 21.0755 40.5087 22.4946 40.4998C24.6307 40.5054 26.7133 39.8321 28.4418 38.5772C30.1704 37.3223 31.4556 35.5506 32.1119 33.5179C33.5027 33.2332 34.8167 32.6547 35.9659 31.821C37.115 30.9874 38.0728 29.9178 38.7752 28.684C39.8458 26.8371 40.3023 24.6979 40.0789 22.5748C39.8556 20.4517 38.9639 18.4544 37.5324 16.8707ZM22.4978 37.8849C20.7443 37.8874 19.0459 37.2733 17.6994 36.1501C17.7601 36.117 17.8666 36.0586 17.936 36.0161L25.9004 31.4156C26.1003 31.3019 26.2663 31.137 26.3813 30.9378C26.4964 30.7386 26.5563 30.5124 26.5549 30.2825V19.0542L29.9213 20.998C29.9389 21.0068 29.9541 21.0198 29.9656 21.0359C29.977 21.052 29.9842 21.0707 29.9867 21.0902V30.3889C29.9842 32.375 29.1946 34.2791 27.7909 35.6841C26.3872 37.0892 24.4838 37.8806 22.4978 37.8849ZM6.39227 31.0064C5.51397 29.4888 5.19742 27.7107 5.49804 25.9832C5.55718 26.0187 5.66048 26.0818 5.73461 26.1244L13.699 30.7248C13.8975 30.8408 14.1233 30.902 14.3532 30.902C14.583 30.902 14.8088 30.8408 15.0073 30.7248L24.731 25.1103V28.9979C24.7321 29.0177 24.7283 29.0376 24.7199 29.0556C24.7115 29.0736 24.6988 29.0893 24.6829 29.1012L16.6317 33.7497C14.9096 34.7416 12.8643 35.0097 10.9447 34.4954C9.02506 33.9811 7.38785 32.7263 6.39227 31.0064ZM4.29707 13.6194C5.17156 12.0998 6.55279 10.9364 8.19885 10.3327C8.19885 10.4013 8.19491 10.5228 8.19491 10.6071V19.808C8.19351 20.0378 8.25334 20.2638 8.36823 20.4629C8.48312 20.6619 8.64893 20.8267 8.84863 20.9404L18.5723 26.5542L15.206 28.4979C15.1894 28.5089 15.1703 28.5155 15.1505 28.5173C15.1307 28.5191 15.1107 28.516 15.0924 28.5082L7.04046 23.8557C5.32135 22.8601 4.06716 21.2235 3.55289 19.3046C3.03862 17.3858 3.30624 15.3413 4.29707 13.6194ZM31.955 20.0556L22.2312 14.4411L25.5976 12.4981C25.6142 12.4872 25.6333 12.4805 25.6531 12.4787C25.6729 12.4769 25.6928 12.4801 25.7111 12.4879L33.7631 17.1364C34.9967 17.849 36.0017 18.8982 36.6606 20.1613C37.3194 21.4244 37.6047 22.849 37.4832 24.2684C37.3617 25.6878 36.8382 27.0432 35.9743 28.1759C35.1103 29.3086 33.9415 30.1717 32.6047 30.6641C32.6047 30.5947 32.6047 30.4733 32.6047 30.3889V21.188C32.6066 20.9586 32.5474 20.7328 32.4332 20.5338C32.319 20.3348 32.154 20.1698 31.955 20.0556ZM35.3055 15.0128C35.2464 14.9765 35.1431 14.9142 35.069 14.8717L27.1045 10.2712C26.906 10.1554 26.6803 10.0943 26.4504 10.0943C26.2206 10.0943 25.9948 10.1554 25.7963 10.2712L16.0726 15.8858V11.9982C16.0715 11.9783 16.0753 11.9585 16.0837 11.9405C16.0921 11.9225 16.1048 11.9068 16.1207 11.8949L24.1719 7.25025C25.4053 6.53903 26.8158 6.19376 28.2383 6.25482C29.6608 6.31589 31.0364 6.78077 32.2044 7.59508C33.3723 8.40939 34.2842 9.53945 34.8334 10.8531C35.3826 12.1667 35.5464 13.6095 35.3055 15.0128ZM14.2424 21.9419L10.8752 19.9981C10.8576 19.9893 10.8423 19.9763 10.8309 19.9602C10.8195 19.9441 10.8122 19.9254 10.8098 19.9058V10.6071C10.8107 9.18295 11.2173 7.78848 11.9819 6.58696C12.7466 5.38544 13.8377 4.42659 15.1275 3.82264C16.4173 3.21869 17.8524 2.99464 19.2649 3.1767C20.6775 3.35876 22.0089 3.93941 23.1034 4.85067C23.0427 4.88379 22.937 4.94215 22.8668 4.98473L14.9024 9.58517C14.7025 9.69878 14.5366 9.86356 14.4215 10.0626C14.3065 10.2616 14.2466 10.4877 14.2479 10.7175L14.2424 21.9419ZM16.071 17.9991L20.4018 15.4978L24.7325 17.9975V22.9985L20.4018 25.4983L16.071 22.9985V17.9991Z" fill="currentColor"></path></svg></div></div><div class="relative flex w-[calc(100%-50px)] md:flex-col lg:w-[calc(100%-115px)]"><div class="flex flex-grow flex-col gap-3"><div class="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap"><div class="markdown prose w-full break-words dark:prose-invert light"><p>CSS style for the current bird and add it to the <code>styles</code> array
+styles.push(<code>background-color: ${backgroundColor}; color: ${color}; font-family: ${font};</code>);</p><pre><div class="bg-black mb-4 rounded-md"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans"><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre-wrap hljs language-javascript"><span class="hljs-comment">// add a click event listener to the current bird element</span>
+birds[i].<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-comment">// generate a random size and shape for the bird</span>
+  <span class="hljs-keyword">const</span> size = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">50</span>) + <span class="hljs-number">10</span>; <span class="hljs-comment">// random number between 10 and 60</span>
+  <span class="hljs-keyword">const</span> borderRadius = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * <span class="hljs-number">90</span>) + <span class="hljs-number">10</span>; <span class="hljs-comment">// random number between 10 and 100</span>
+
+  <span class="hljs-comment">// apply the size and shape to the current bird element</span>
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">style</span>.<span class="hljs-property">width</span> = size + <span class="hljs-string">'px'</span>;
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">style</span>.<span class="hljs-property">height</span> = size + <span class="hljs-string">'px'</span>;
+  <span class="hljs-variable language_">this</span>.<span class="hljs-property">style</span>.<span class="hljs-property">borderRadius</span> = borderRadius + <span class="hljs-string">'%'</span>;
+
+  <span class="hljs-comment">// change the CSS styling of the entire HTML file to the corresponding style</span>
+  <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">style</span>.<span class="hljs-property">cssText</span> = styles[i];
+});
+</code></div></div></pre><p>}
+}</p><p>// call the makeBirdsClickable function when the page loads
+window.onload = makeBirdsClickable;</p><pre><div class="bg-black mb-4 rounded-md"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans"><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre-wrap hljs language-vbnet">
+This code generates a random size <span class="hljs-built_in">and</span> shape <span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> bird only <span class="hljs-keyword">when</span> it <span class="hljs-built_in">is</span> clicked, <span class="hljs-built_in">and</span> applies the size <span class="hljs-built_in">and</span> shape <span class="hljs-keyword">to</span> the bird element <span class="hljs-keyword">using</span> the `style` <span class="hljs-keyword">property</span>. The rest <span class="hljs-keyword">of</span> the <span class="hljs-keyword">function</span> remains unchanged.
+
+Now, the birds will <span class="hljs-built_in">not</span> change shape <span class="hljs-keyword">on</span> load, but instead will change shape only <span class="hljs-keyword">each</span> time a bird <span class="hljs-built_in">is</span> clicked <span class="hljs-keyword">on</span>.
+</code></div></div></pre></div></div></div><div class="text-gray-400 flex self-end lg:self-center justify-center mt-2 gap-4 lg:gap-1 lg:absolute lg:top-0 lg:translate-x-full lg:right-0 lg:mt-0 lg:pl-2 visible"><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></button><button class="p-1 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200 disabled:dark:hover:text-gray-400"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg></button></div></div></div></div><div class="w-full h-48 flex-shrink-0"></div></div><button class="cursor-pointer absolute right-6 bottom-[124px] md:bottom-[120px] z-10 rounded-full border border-gray-200 bg-gray-50 text-gray-600 dark:border-white/10 dark:bg-white/10 dark:text-gray-200"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 m-1" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></button></div><button class="react-scroll-to-bottom--css-vymow-1tj0vk3 scroll-convo" type="button"></button></div></div><div class="absolute bottom-0 left-0 w-full border-t md:border-t-0 dark:border-white/20 md:border-transparent md:dark:border-transparent md:bg-vert-light-gradient bg-white dark:bg-gray-800 md:!bg-transparent dark:md:bg-vert-dark-gradient"><form class="stretch mx-2 flex flex-row gap-3 pt-2 last:mb-2 md:last:mb-6 lg:mx-auto lg:max-w-3xl lg:pt-6"><div class="relative flex h-full flex-1 md:flex-col"><div class="ml-1 mt-1.5 md:w-full md:m-auto md:flex md:mb-2 gap-2 justify-center"><button class="btn flex justify-center gap-2 btn-neutral border-0 md:border"><svg stroke="currentColor" fill="none" stroke-width="1.5" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>Regenerate response</button></div><div class="flex flex-col w-full py-2 pl-3 flex-grow md:py-3 md:pl-4 relative border border-black/10 bg-white dark:border-gray-900/50 dark:text-white dark:bg-gray-700 rounded-md shadow-[0_0_10px_rgba(0,0,0,0.10)] dark:shadow-[0_0_15px_rgba(0,0,0,0.10)]"><textarea tabindex="0" data-id="request-:r0:-1" rows="1" placeholder="" class="m-0 w-full resize-none border-0 bg-transparent p-0 pr-7 focus:ring-0 focus-visible:ring-0 dark:bg-transparent" style="max-height: 200px; height: 24px; overflow-y: hidden;"></textarea><button class="absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" class="h-4 w-4 rotate-90" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg></button></div></div></form><div class="px-3 pt-2 pb-3 text-center text-xs text-black/50 dark:text-white/50 md:px-4 md:pt-3 md:pb-6"><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noreferrer" class="underline">ChatGPT Dec 15 Version</a>. Free Research Preview. Our goal is to make AI systems more natural and safe to interact with. Your feedback will help us improve.</div></div></main>

@@ -37,6 +37,9 @@
     </pre>
   </div>
 
+  <!-- Add a container for the text display -->
+  <div id="text-display"></div>
+
   <!-- Add a form for the user to interact with the bird -->
   <form>
     <!-- Add a text box for the user to type in -->
@@ -52,13 +55,15 @@
   <script>
     // Get a reference to the bird element
     let bird = document.querySelector('.bird');
+    // Get a reference to the text display element
+    let textDisplay = document.getElementById('text-display');
 
     // Define a function for the user to "say" something to the bird
     function say() {
       // Get the value of the text box
       let input = document.getElementById('input-box').value;
-      // Display the text in the bird element, preceded by "SQUAAAAAK"
-      bird.innerHTML = "SQUAAAAAK " + input;
+      // Display the text in the text display element, preceded by "SQUAAAAAK"
+      textDisplay.innerHTML += "SQUAAAAAK " + input + "<br>";
     }
 
     // Define a function to change the color of the bird
@@ -72,7 +77,7 @@
     // Define a function to feed the bird
     function feed() {
       // Display a message in the bird element
-      bird.innerHTML = "SQUAAAAAK Yum!";
+      textDisplay.innerHTML = "SQUAAAAAK Yum!";
     }
   </script>
 </body>

@@ -86,6 +86,7 @@
       height: 20px;
       width: 20px;
       position: absolute;
+      pointer-events: all;
       /* add an animation to make the circles flap their wings */
       animation: flap 0.5s ease-in-out infinite, color-change 5s linear infinite;
     }
@@ -144,13 +145,16 @@
   <h2>Styles</h2>
   <a href="./styles-1-how.html">styles-1</a> <br>
   <a href="./styles-2-how.html">styles-2</a> <br>
+  <a href="./styles-3-how.html">styles-3</a> <br>
 
   <br>
   <h2>RIP Terry!</h2>
+  <br>
 
   <div id="judgement">
     <button id="judgement-button">JUDGEMENT</button>
   </div>
+  <br>
   <div id="offering-container" style="display: none;">
     <button id="offering-button">MAKE OFFERING</button>
     <div id="offering"></div>
@@ -368,6 +372,63 @@
 
     // create the birds when the page loads
     window.addEventListener('load', createBirds);
+
+
+
+    function makeBirdsClickable() {
+      // get all the bird elements
+      const birds = document.querySelectorAll('.bird');
+
+      // define an array to store the different CSS styles for each bird
+      const styles = [];
+
+      // define an array of fonts to choose from
+      const fonts = [
+        'Arial',
+        'Helvetica',
+        'Tahoma',
+        'Verdana',
+        'Times New Roman',
+        'Georgia',
+        'Palatino',
+        'Garamond',
+        'Bookman',
+        'Comic Sans MS',
+        'Courier New',
+        'Lucida Console'
+      ];
+
+      // loop through each bird element
+      for (let i = 0; i < birds.length; i++) {
+        // generate a random set of colors for all pre-existing CSS colors
+        const backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        const color = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
+        // choose a random font from the fonts array
+        const font = fonts[Math.floor(Math.random() * fonts.length)];
+
+        // create a CSS style for the current bird and add it to the styles array
+        styles.push(`background-color: ${backgroundColor}; color: ${color}; font-family: ${font};`);
+        // add a click event listener to the current bird element
+        birds[i].addEventListener('click', function () {
+          // generate a random size and shape for the bird
+          const size = Math.floor(Math.random() * 50) + 10; // random number between 10 and 60
+          const borderRadius = Math.floor(Math.random() * 90) + 10; // random number between 10 and 100
+
+          // apply the size and shape to the current bird element
+          this.style.width = size + 'px';
+          this.style.height = size + 'px';
+          this.style.borderRadius = borderRadius + '%';
+
+          // change the CSS styling of the entire HTML file to the corresponding style
+          document.body.style.cssText = styles[i];
+        });
+      }
+    }
+
+    // call the makeBirdsClickable function when the page loads
+    window.onload = makeBirdsClickable;
+
 
 
   </script>
