@@ -1,160 +1,242 @@
 <html>
-  <head>
-    <style>
-      body {
-        background-color: black;
+
+<head>
+  <style>
+    body {
+      background-color: black;
+    }
+
+    canvas {
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="gameCanvas"></canvas>
+  <script>
+    let gameOver = false;
+    let gameOverText = "";
+
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // Set the canvas dimensions to fill the screen
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Set up the player character
+    let player = {
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      width: 20,
+      height: 20,
+      color: "white",
+      speed: 5
+    };
+
+    // Set up the bullets
+    let bullets = [];
+    let bulletSpeed = 5; // Reduced bullet speed
+
+    // Handle keyboard controls
+    document.addEventListener("keydown", keyDownHandler);
+    document.addEventListener("keyup", keyUpHandler);
+
+    let rightPressed = false;
+    let leftPressed = false;
+    let upPressed = false;
+    let downPressed = false;
+
+    function keyDownHandler(event) {
+      if (event.key == "Right" || event.key == "ArrowRight") {
+        rightPressed = true;
+      }
+      if (event.key == "Left" || event.key == "ArrowLeft") {
+        leftPressed = true;
+      }
+      if (event.key == "Up" || event.key == "ArrowUp") {
+        upPressed = true;
+      }
+      if (event.key == "Down" || event.key == "ArrowDown") {
+        downPressed = true;
+      }
+    }
+
+    function keyUpHandler(event) {
+      if (event.key == "Right" || event.key == "ArrowRight") {
+        rightPressed = false;
+      }
+      if (event.key == "Left" || event.key == "ArrowLeft") {
+        leftPressed = false;
+      }
+      if (event.key == "Up" || event.key == "ArrowUp") {
+        upPressed = false;
+      }
+      if (event.key == "Down" || event.key == "ArrowDown") {
+        downPressed = false;
+      }
+    }
+
+    // Set up the timer
+    let startTime = Date.now();
+    let elapsedTime = 0;
+
+    // Update the game state
+    function update() {
+      // Calculate elapsed time
+      elapsedTime = (Date.now() - startTime) / 1000;
+
+      // Stop the game if the player has been hit by a bullet
+      if (gameOver) {
+        return;
       }
 
-      canvas {
-        background-color: green;
+      // Move the player based on the keyboard input
+      if (rightPressed) {
+        player.x += player.speed;
       }
-    </style>
-  </head>
-  <body>
-    <canvas id="gameCanvas"></canvas>
-    <script>
-      const canvas = document.getElementById("gameCanvas");
-      const context = canvas.getContext("2d");
-
-      // Set the canvas dimensions to fill the screen
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      // Set up the player character
-      let player = {
-        x: canvas.width / 2,
-        y: canvas.height / 2,
-        width: 20,
-        height: 20,
-        color: "white",
-        speed: 5
-      };
-
-      // Set up the bullets
-      let bullets = [];
-      let bulletSpeed = 10;
-
-      // Handle keyboard controls
-      document.addEventListener("keydown", keyDownHandler);
-      document.addEventListener("keyup", keyUpHandler);
-
-      let rightPressed = false;
-      let leftPressed = false;
-      let upPressed = false;
-      let downPressed = false;
-
-      function keyDownHandler(event) {
-        if (event.key == "Right" || event.key == "ArrowRight") {
-          rightPressed = true;
-        }
-        if (event.key == "Left" || event.key == "ArrowLeft") {
-          leftPressed = true;
-        }
-        if (event.key == "Up" || event.key == "ArrowUp") {
-          upPressed = true;
-        }
-        if (event.key == "Down" || event.key == "ArrowDown") {
-          downPressed = true;
-        }
+      if (leftPressed) {
+        player.x -= player.speed;
+      }
+      if (upPressed) {
+        player.y -= player.speed;
+      }
+      if (downPressed) {
+        player.y += player.speed;
       }
 
-      function keyUpHandler(event) {
-        if (event.key == "Right" || event.key == "ArrowRight") {
-          rightPressed = false;
-        }
-        if (event.key == "Left" || event.key == "ArrowLeft") {
-          leftPressed = false;
-        }
-        if (event.key == "Up" || event.key == "ArrowUp") {
-          upPressed = false;
-        }
-        if (event.key == "Down" || event.key == "ArrowDown") {
-          downPressed = false;
-        }
+      // Move the bullets
+      for (let i = 0; i < bullets.length; i++) {
+        bullets[i].y += bulletSpeed;
       }
 
-      // Update the game state
-      function update() {
-        // Move the player based on the keyboard input
-        if (rightPressed) {
-          player.x += player.speed;
-        }
-        if (leftPressed) {
-          player.x -= player.speed;
-        }
-        if (upPressed) {
-          player.y -= player.speed;
-        }
-        if (downPressed) {
-          player.y += player.speed;
-        }
+      // Remove bullets that have gone off the screen
+      bullets = bullets.filter(bullet => bullet.y < canvas.height);
 
-        // Move the bullets
-        for (let i = 0; i < bullets.length; i++) {
-          bullets[i].y -= bulletSpeed;
-        }
+      // Spawn new bullets at random intervals
+      if (Math.random() < 0.1) {
+        bullets.push({
+          x: Math.random() * canvas.width,
+          y: 0,
+          width: 10,
+          height: 30,
+          color: "red"
+        });
+      }
 
-        // Remove bullets that have gone off the screen
-        bullets = bullets.filter(bullet => bullet.y > 0);
+      // Check for collision with bullets
+      for (let i = 0; i < bullets.length; i++) {
+        let bullet = bullets[i];
+        if (
+          player.x < bullet.x + bullet.width &&
+          player.x + player.width > bullet.x &&
+          player.y < bullet.y + bullet.height &&
+          player.y + player.height > bullet.y
+        ) {
+          // Collision detected, end the game
+          gameOver = true;
+          gameOverText = "Game Over";
 
-        // Spawn new bullets at random intervals
-        if (Math.random() < 0.1) {
-          bullets.push({
-            x: Math.random() * canvas.width,
-            y: 0,
-            width: 5,
-            height: 15,
-            color: "red"
-          });
-        }
-
-        // Check for collision with bullets
-        for (let i = 0; i < bullets.length; i++) {
-          let bullet = bullets[i];
-          if (
-            player.x < bullet.x + bullet.width &&
-            player.x + player.width > bullet.x &&
-            player.y < bullet.y + bullet.height &&
-            player.y + player.height > bullet.y
-          ) {
-            // Collision detected, end the game
-            alert("You were hit by a bullet! Game Over.");
-            document.location.reload();
+          // Update the high score if necessary
+          let highScore = getCookie("highScore");
+          if (highScore === undefined || elapsedTime > highScore) {
+            setCookie("highScore", elapsedTime, 365);
           }
         }
       }
+    }
 
-      // Render the game
-      function draw() {
-        // Clear the canvas
-        context.clearRect(0, 0, canvas.width, canvas.height);
+    // Draw the game elements
+    function draw() {
+      // Clear the canvas
+      let ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Draw the player character
-        context.beginPath();
-        context.rect(player.x, player.y, player.width, player.height);
-        context.fillStyle = player.color;
-        context.fill();
-        context.closePath();
+      // Draw the player
+      ctx.fillStyle = player.color;
+      ctx.fillRect(player.x, player.y, player.width, player.height);
 
-        // Draw the bullets
-        for (let i = 0; i < bullets.length; i++) {
-          let bullet = bullets[i];
-          context.beginPath();
-          context.rect(bullet.x, bullet.y, bullet.width, bullet.height);
-          context.fillStyle = bullet.color;
-          context.fill();
-          context.closePath();
-        }
+      // Draw the bullets
+      for (let i = 0; i < bullets.length; i++) {
+        let bullet = bullets[i];
+        ctx.fillStyle = bullet.color;
+        ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
       }
 
-      // Game loop
-      function gameLoop() {
-        update();
-        draw();
-        requestAnimationFrame(gameLoop);
+      // Draw the elapsed time and high score
+      ctx.font = "24px sans-serif";
+      ctx.fillStyle = "white";
+      ctx.fillText(`Time: ${elapsedTime.toFixed(1)}s`, 10, 30);
+      let highScore = getCookie("highScore");
+      if (highScore !== undefined) {
+        ctx.fillText(`High Score: ${highScore}s`, 10, 60);
+      } else {
+        ctx.fillText(`High Score: -`, 10, 60);
       }
 
-      gameLoop();
-    </script>
-  </body>
+      // Draw the "Game Over" message and restart button if necessary
+      if (gameOver) {
+        ctx.font = "48px sans-serif";
+        ctx.fillStyle = "red";
+        ctx.textAlign = "center";
+        ctx.fillText(gameOverText, canvas.width / 2, canvas.height / 2);
+
+        // Create the restart button
+        let button = document.createElement("button");
+        button.innerHTML = "Restart";
+        button.style.fontSize = "24px";
+        button.style.position = "absolute";
+        button.style.left = `${canvas.width / 2 - 50}px`;
+        button.style.top = `${canvas.height / 2 + 50}px`;
+        document.body.appendChild(button);
+
+        // Restart the game when the button is clicked
+        button.addEventListener("click", function () {
+          // Check if the elapsed time is a new high score
+          let highScore = getCookie("highScore");
+          if (highScore === undefined || elapsedTime > highScore) {
+            setCookie("highScore", elapsedTime, 365);
+          }
+          // Reload the page to reset the game
+          location.reload();
+        });
+      }
+    }
+
+    // The game loop
+function gameLoop() {
+  update();
+  draw();
+  if (!gameOver) {
+    requestAnimationFrame(gameLoop);
+  } else {
+    // Cancel the requestAnimationFrame call when the game is over
+    return;
+  }
+}
+
+
+    gameLoop();
+
+    // Function to get a cookie value
+    function getCookie(name) {
+      let value = "; " + document.cookie;
+      let parts = value.split("; " + name + "=");
+      if (parts.length == 2) return parts.pop().split(";").shift();
+    }
+
+    // Function to set a cookie value
+    function setCookie(name, value, days) {
+      let expires = "";
+      if (days) {
+        let date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+  </script>
+</body>
+
 </html>
