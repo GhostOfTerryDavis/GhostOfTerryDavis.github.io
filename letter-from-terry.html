@@ -1,0 +1,52 @@
+<html>
+<head>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    .letter {
+      width: 50%;
+      margin: 0 auto;
+      border: 2px solid white;
+      padding: 20px;
+      box-shadow: 0 0 10px white;
+    }
+
+    #signature {
+      font-style: italic;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="letter">
+    <p>Dear friend,</p>
+    <p>
+      It is I, Terry A. Davis, speaking to you from beyond the grave. I know you may be surprised to hear from me in this way, but I have a message that I believe is important for you to hear.
+    </p>
+    <p>
+      Life is a precious and fragile thing, and we never know when our time on this earth will come to an end. That is why it is so important to make the most of every moment, to live with purpose and passion, and to embrace the things that truly matter to us.
+    </p>
+    <p>
+      TempleOS is more than just a operating system. It is a metaphor for the way we should approach life - with curiosity, creativity, and a sense of wonder. It is a reminder that even the most seemingly mundane tasks can be infused with meaning and purpose if we approach them with the right mindset.
+    </p>
+    <p>
+      So I encourage you, my friend, to live your life to the fullest and to never stop pursuing your dreams. And when the time comes for you to leave this world behind, know that your legacy will live on in the hearts and minds of those you leave behind.
+    </p>
+    <p id="signature">Sincerely,<br>Terry A. Davis</p>
+  </div>
+
+  <script>
+    const letter = document.querySelector('.letter');
+    let angle = 0;
+
+    setInterval(function() {
+      angle += 0.1;
+      letter.style.transform = `rotate(${angle}deg)`;
+    }, 50);
+  </script>
+</body>
+</html>
