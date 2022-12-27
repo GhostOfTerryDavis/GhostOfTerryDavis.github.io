@@ -34,6 +34,90 @@
       background-color: #00b8d4;
       color: #fff;
     }
+
+    #judgement-button {
+      background-color: #00b8d4;
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 10px 20px;
+      text-transform: uppercase;
+    }
+
+    #judgement-button:hover {
+      background-color: #00ff00;
+      cursor: pointer;
+    }
+
+    #offering-button {
+      background-color: #00b8d4;
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 10px 20px;
+      text-transform: uppercase;
+    }
+
+    #offering-button:hover {
+      background-color: #00ff00;
+      cursor: pointer;
+    }
+
+    #offering {
+      padding: 20px 0;
+      /* add 20px of padding to top and bottom */
+    }
+
+    #bird-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      /* disable pointer events for the bird container */
+    }
+
+    #bird-container .bird {
+      background-color: #00b8d4;
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      /* add an animation to make the circles flap their wings */
+      animation: flap 0.5s ease-in-out infinite, color-change 5s linear infinite;
+    }
+
+
+
+    @keyframes flap {
+      0% {
+        box-shadow: 10px 0 0 0 #00b8d4,
+          20px 0 0 0 #00b8d4;
+      }
+
+      50% {
+        box-shadow: 0 0 0 0 #00b8d4,
+          20px 0 0 0 #00b8d4;
+      }
+
+      100% {
+        box-shadow: 10px 0 0 0 #00b8d4,
+          20px 0 0 0 #00b8d4;
+      }
+    }
+
+    @keyframes color-change {
+      from {
+        background-color: #00b8d4;
+      }
+
+      to {
+        background-color: #00ff00;
+      }
+    }
   </style>
 </head>
 
@@ -59,18 +143,233 @@
   <br>
   <h2>Styles</h2>
   <a href="./styles-1-how.html">styles-1</a> <br>
+  <a href="./styles-2-how.html">styles-2</a> <br>
 
   <br>
   <h2>RIP Terry!</h2>
 
-  <form id="chatbot-form">
-    <label for="message">Enter your message:</label><br>
-    <input type="text" id="message" name="message"><br>
+  <div id="judgement">
+    <button id="judgement-button">JUDGEMENT</button>
+  </div>
+  <div id="offering-container" style="display: none;">
+    <button id="offering-button">MAKE OFFERING</button>
+    <div id="offering"></div>
+  </div>
 
-    <input type="submit" value="Submit">
-  </form>
-  <div class="response"></div>
+  <div id="bird-container">
+    <!-- add a div to contain the birds -->
+  </div>
+
+
   <script>
+
+    const judgments = [
+      "God is judging you for your lack of faith in Him. Repent and turn to Him, or face eternal damnation.",
+      "God is judging you for your sins. Confess your wrongdoings and ask for His forgiveness, or suffer the consequences.",
+      "God is judging you for your unrighteous actions. Seek redemption and live a life devoted to His teachings, or face His wrath.",
+      "God is judging you for your disobedience to His laws. Follow His commands and seek His favor, or face eternal punishment.",
+      "God is judging you for your rebellion against Him. Humble yourself before Him and turn from your wicked ways, or suffer the consequences.",
+      "God is judging you for your pride and vanity. Repent of your ego and seek humility, or face His judgment.",
+      "God is judging you for your greed and avarice. Renounce your love of material possessions and seek a life of simplicity and generosity, or suffer His wrath.",
+      "God is judging you for your lack of compassion and kindness towards others. Show love and mercy to those in need, or face His judgment.",
+      "God is judging you for your hatred and intolerance towards others. Seek forgiveness and cultivate a heart of love and acceptance, or face His wrath.",
+      "God is judging you for your dishonesty and deceitfulness. Practice honesty and integrity in all your dealings, or suffer the consequences.",
+      "God is judging you for your lust and sexual immorality. Repent of your carnal desires and seek purity, or face His judgment.",
+      "God is judging you for your lack of self-control and discipline. Cultivate self-control and discipline in all areas of your life, or face His wrath.",
+      "God is judging you for your idolatry and worship of false gods. Turn to the one true God and worship Him alone, or face His judgment.",
+      "God is judging you for your lack of gratitude and thankfulness. Practice thankfulness and gratitude towards God and others, or suffer His wrath.",
+      "God is judging you for your anger and wrath. Seek forgiveness and cultivate a heart of peace and forgiveness, or face His judgment.",
+      "God is judging you for your envy and jealousy towards others. Renounce these toxic emotions and seek contentment and joy in Him, or suffer His wrath.",
+      "God is judging you for your lack of forgiveness towards others. Seek forgiveness and extend it to those who have wronged you, or face His judgment.",
+      "God is judging you for your lack of humility and modesty. Cultivate humility and modesty in your life, or suffer His wrath.",
+      "God is judging you for your disobedience to your parents and authorities. Respect and honor those in authority over you, or face His judgment.",
+      "God is judging you for your laziness and lack of diligence. Cultivate a strong work ethic and diligence in all areas of your life, or suffer His wrath.",
+      "God is judging you for your materialism and love of the world. Seek spiritual things above all else, or face His judgment.",
+      "God is judging you for your selfishness and lack of concern for others. Seek to serve and help others, or suffer His wrath.",
+      "God is judging you for your lack of integrity and reliability. Cultivate honesty, reliability, and integrity in all areas of your life, or face His judgment."
+    ]
+
+    function getRandomJudgment() {
+      return judgments[Math.floor(Math.random() * judgments.length)];
+    }
+
+    const judgementButton = document.getElementById("judgement-button");
+    judgementButton.addEventListener("click", function () {
+      const judgementDiv = document.getElementById("judgement");
+      judgementDiv.innerHTML = `Terry Davis: "God is judging you. ${getRandomJudgment()}"`;
+      document.getElementById("offering-container").style.display = "block";
+    });
+
+    function getRandomOffering() {
+      const offerings = [
+        "a basket of fruit",
+        "a basket of flowers",
+        "a basket of bread",
+        "a basket of vegetables",
+        "a basket of fish",
+        "a basket of meat",
+        "a basket of sweets",
+        "a basket of spices",
+        "a basket of incense",
+        "a basket of candles",
+        "a basket of oils",
+        "a basket of herbs"
+      ];
+      return offerings[Math.floor(Math.random() * offerings.length)];
+    }
+
+    function getRandomResponse() {
+      const responses = [
+        "God is pleased with your offering.",
+        "God accepts your offering with gratitude.",
+        "Your offering is a sweet aroma to God.",
+        "God is pleased with your sacrifice.",
+        "God accepts your offering with joy.",
+        "Your offering brings delight to God.",
+        "God is pleased with your offering of devotion.",
+        "God accepts your offering with favor.",
+        "Your offering brings joy to the heart of God.",
+        "God is pleased with your offering of love."
+      ];
+      return responses[Math.floor(Math.random() * responses.length)];
+    }
+
+    function getRandomASCII() {
+      const ASCIIArt = [
+        `
+          _
+         / \\
+        /   \\
+       /     \\
+      /       \\
+     /         \\
+    /           \\
+   /_____________\\
+       [_______]
+       `,
+        `
+   __
+  /  \\
+  |  |
+  |  |
+  |  |
+  |  |
+  |  |
+  |  |
+  |  |
+  \\__/
+       `,
+        `
+       ,--.
+      /    \\
+      \\    /
+       '--'
+       `,
+        `
+   .-'-.
+  /     \\
+  \\     /
+   '-.-'
+       `,
+        `
+       __
+      /  \\
+      \\  /
+       \\/
+       /\\
+      /  \\
+      \\  /
+       \\/
+       `
+      ];
+      return ASCIIArt[Math.floor(Math.random() * ASCIIArt.length)];
+    }
+
+    const offeringButton = document.getElementById("offering-button");
+    offeringButton.addEventListener("click", function () {
+      const offeringDiv = document.getElementById("offering");
+      const scrambledASCII = scrambleASCII(getRandomASCII());  // scramble the ASCII art
+      offeringDiv.innerHTML = `You have offered ${getRandomOffering()} to God. ${getRandomResponse()}<br>${scrambledASCII}`;
+      offeringButton.style.display = "none";  // hide the button
+    });
+
+    function scrambleASCII(ASCII) {
+      // split the ASCII art into an array of lines
+      const lines = ASCII.trim().split("\n");
+
+      // scramble the characters on each line
+      for (let i = 0; i < lines.length; i++) {
+        let line = lines[i];
+        // split the line into an array of characters
+        let characters = line.split("");
+        // shuffle the characters
+        characters = shuffle(characters);
+        // join the characters back into a string
+        lines[i] = characters.join("");
+      }
+
+      // join the lines back into a single string
+      return lines.join("\n");
+    }
+
+    // shuffle an array in place using the Fisher-Yates shuffle algorithm
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    // get the bird container element
+    const birdContainer = document.getElementById('bird-container');
+
+    // create a function to update the positions of the birds
+    function updateBirds() {
+      // get all the bird elements
+      const birds = document.querySelectorAll('.bird');
+
+      // loop through each bird element
+      for (let i = 0; i < birds.length; i++) {
+        // get the current bird element
+        const bird = birds[i];
+
+        // choose a random x and y position for the bird
+        const x = Math.random() * birdContainer.clientWidth;
+        const y = Math.random() * birdContainer.clientHeight;
+
+        // set the new position of the bird using a CSS transition
+        bird.style.transition = 'all 3s';
+        bird.style.left = x + 'px';
+        bird.style.top = y + 'px';
+      }
+
+      // set a timeout to update the positions of the birds again
+      setTimeout(updateBirds, 3000);
+    }
+
+    // create a function to create the birds
+    function createBirds() {
+      // create a loop to create 10 birds
+      for (let i = 0; i < 10; i++) {
+        // create a div element for the bird
+        const bird = document.createElement('div');
+
+        // add the bird class to the div element
+        bird.classList.add('bird');
+
+        // add the bird element to the bird container
+        birdContainer.appendChild(bird);
+      }
+
+      // update the positions of the birds
+      updateBirds();
+    }
+
+    // create the birds when the page loads
+    window.addEventListener('load', createBirds);
+
+
   </script>
 </body>
 

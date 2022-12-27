@@ -2,413 +2,78 @@
 <html>
 <head>
   <style>
-    /* Add your CSS here */
-    body {
-      font-family: sans-serif;
-    }
-    .game-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
+    /* Add some styles for the bird cage and bird */
     .bird-cage {
-      width: 300px;
-      height: 400px;
-      background-color: white;
-      border: 1px solid lightgray;
-      border-radius: 5px;
-      box-sizing: border-box;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      text-align: center;
-      padding: 20px;
-      margin-bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      width: 500px;
+      height: 300px;
+      border: 1px solid black;
+      margin: 0 auto;
+      background-color: #eee;
+      position: relative;
     }
-    .bird-cage h3 {
-      margin: 0;
-      margin-bottom: 20px;
-    }
-    .bird-cage img {
+    .bird {
       width: 100px;
       height: 100px;
-      margin-bottom: 10px;
-    }
-    .bird-cage p {
-      margin: 0;
-    }
-    .bird-cage button {
-      width: 80%;
-      height: 40px;
-      border: none;
-      border-radius: 20px;
-      background-color: lightgreen;
-      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #f00;
       font-size: 16px;
-      cursor: pointer;
-      margin: 10px 0;
-    }
-    .bird-cage button.disabled {
-      background-color: lightgray;
-      cursor: default;
-    }
-    .store {
-      width: 300px;
-      background-color: white;
-      border: 1px solid lightgray;
-      border-radius: 5px;
-      box-sizing: border-box;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       text-align: center;
-      padding: 20px;
-      margin-bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .store h3 {
-      margin: 0;
-      margin-bottom: 20px;
-    }
-    .item {
-      width: 80%;
-      height: 200px;
-      border: 1px solid lightgray;
-      border-radius: 5px;
-      box-sizing: border-box;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      text-align: center;
-      padding: 20px;
-      margin-bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .item p {
-      margin: 0;
-      margin-bottom: 10px;
-    }
-    .item img {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 10px;
-    }
-    .item button {
-      width: 80%;
-      height: 40px;
-      border: none;
-      border-radius: 20px;
-      background-color: lightgreen;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
-    .item button.disabled {
-      background-color: lightgray;
-      cursor: default;
-    }
-    .currency {
-      width: 80%;
-      height: 200px;
-      border: 1px solid lightgray;
-      border-radius: 5px;
-      box-sizing: border-box;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      text-align: center;
-      padding: 20px;
-      margin-bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .currency p {
-      margin: 0;
-    }
-    .currency img {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 10px;
-    }
-    .currency p.currency-amount {
-      font-size: 24px;
-    }
-    .info {
-      width: 300px;
-      height: 400px;
-      background-color: white;
-      border: 1px solid lightgray;
-      border-radius: 5px;
-      box-sizing: border-box;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      text-align: center;
-      padding: 20px;
-      margin-bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .info h3 {
-      margin: 0;
-      margin-bottom: 20px;
-    }
-    .info img {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 10px;
-    }
-    .info p {
-      margin: 0;
+      line-height: 100px;
     }
   </style>
 </head>
 <body>
-  <div class="currency-container">
-    <h4 id="player-name"></h4>
-    <p>Total currency: <span id="currency-amount">0</span></p>
-</div>
-<div class="game-container">
+  <!-- Add a container for the bird cage and bird -->
   <div class="bird-cage">
-    <h3>Bird Cage</h3>
-    <pre>
-+------------+
-|            |
-|    \__/    |
-|    ( o.o)  |
-|     >^<    |
-+------------+
+    <!-- Use ASCII art to draw a bird -->
+    <pre class="bird">
+          .-"""-.
+         /       \
+         \       /
+          `-...-'
     </pre>
-    <p class="hunger">Hunger: 50/100</p>
-    <p class="happiness">Happiness: 50/100</p>
-    <button onclick="feed()">Feed</button>
-    <button onclick="play()">Play</button>
-    <button onclick="upgradeCage()">Upgrade Cage</button>
-    <button onclick="sell()">Sell</button>
-    <p class="current-cage">Current Cage: Normal</p>
   </div>
-  <div class="store">
-    <h3>Store</h3>
-    <div class="exotic-food item">
-      <pre>
-____________
-/            \
-/   (\_(\      |
-|    (_) )     |
-\     |/      |
-|    |       |
-/    \ \      |
-/      \ \_____|
-      </pre>
-      <p>Exotic Food - 10 currency</p>
-      <button onclick="buyExoticFood()">Buy</button>
-    </div>
-    <div class="normal-food item">
-      <pre>
-____________
-/            \
-/   (\_(\      |
-|    (_) )     |
-\     |/      |
-|    |       |
-/    \ \      |
-/      \ \_____|
-      </pre>
-      <p>Normal Food - 5 currency</p>
-      <button onclick="buyNormalFood()">Buy</button>
-    </div>
-    <div class="new-bird-cage item">
-      <pre>
-+------------+
-|            |
-|  (   ) (   |
-|   )  )  )  |
-|  (   ) (   |
-+------------+
-      </pre>
-      <p>New Bird Cage - 50 currency</p>
-      <button onclick="buyNewBirdCage()">Buy</button>
-    </div>
-    <div class="new-bird item">
-      <pre>
-+------------+
-|            |
-|    \__/    |
-|    ( o.o)  |
-|     >^<    |
-+------------+
-      </pre>
-      <p>New Bird - 50 currency</p>
-      <button onclick="buyNewBird()">Buy</button>
-    </div>
-  </div>
-  <div class="info">
-    <h3>Info</h3>
-    <pre>
-+------------+
-|            |
-|  (   ) (   |
-|   )  )  )  |
-|  (   ) (   |
-+------------+
-    </pre>
-    <p>Normal Bird Cage</p>
-      <p>Holds one bird</p>
-      <p>Normal size and comfort</p>
-      <pre>
-  +------------+
-  |            |
-  |    \__/    |
-  |    ( o.o)  |
-  |     >^<    |
-  +------------+
-      </pre>
-      <p>Normal Bird</p>
-      <p>No special traits</p>
-    </div>
-  </div>
+
+  <!-- Add a form for the user to interact with the bird -->
+  <form>
+    <!-- Add a text box for the user to type in -->
+    <input type="text" id="input-box" placeholder="Type something to the bird">
+    <!-- Add a button for the user to "say" whatever is in the text box to the bird -->
+    <button type="button" onclick="say()">Say it to the bird</button>
+    <!-- Add a button for the user to randomly generate the color of the bird -->
+    <button type="button" onclick="changeColor()">Change bird's color</button>
+    <!-- Add a button for the user to feed the bird -->
+    <button type="button" onclick="feed()">Feed the bird</button>
+  </form>
+
   <script>
-    // Initialize variables
-    let currency = 50;
-    let birdCages = [{
-      type: "normal",
-      hunger: 50,
-      happiness: 50,
-      cageType: "normal"
-    }];
-    let currentBird = birdCages[0];
-    // Set player name
-    document.getElementById("player-name").innerHTML = "Player Name: " + generateName();
-    // Generate random player name
-    function generateName() {
-      let names = ["Trevor", "Samantha", "Maggie", "Charlie", "Sophie", "Ethan", "Emily", "Michael", "Abby", "Andrew"];
-      let name = names[Math.floor(Math.random() * names.length)];
-      return name;
+    // Get a reference to the bird element
+    let bird = document.querySelector('.bird');
+
+    // Define a function for the user to "say" something to the bird
+    function say() {
+      // Get the value of the text box
+      let input = document.getElementById('input-box').value;
+      // Display the text in the bird element, preceded by "SQUAAAAAK"
+      bird.innerHTML = "SQUAAAAAK " + input;
     }
-    // Update the game
-    function update() {
-      // Update currency amount
-      document.getElementById("currency-amount").innerHTML = currency;
-      // Update bird cage
-      let birdCage = currentBird;
-      let birdCageElement = document.getElementsByClassName("bird-cage")[0];
-      birdCageElement.getElementsByClassName("hunger")[0].innerHTML = "Hunger: " + birdCage.hunger + "/100";
-      birdCageElement.getElementsByClassName("happiness")[0].innerHTML = "Happiness: " + birdCage.happiness + "/100";
-      birdCageElement.getElementsByClassName("current-cage")[0].innerHTML = "Current Cage: " + birdCage.cageType;
-      // Disable buttons if necessary
-      if (currency < 5) {
-        birdCageElement.getElementsByTagName("button")[0].classList.add("disabled");
-      } else {
-        birdCageElement.getElementsByTagName("button")[0].classList.remove("disabled");
-      }
-      if (currency < 10) {
-        document.getElementsByClassName("exotic-food")[0].getElementsByTagName("button")[0].classList.add("disabled");
-      } else {
-        document.getElementsByClassName("exotic-food")[0].getElementsByTagName("button")[0].classList.remove("disabled");
-      }
-      if (currency < 5) {
-        document.getElementsByClassName("normal-food")[0].getElementsByTagName("button")[0].classList.add("disabled");
-      } else {
-        document.getElementsByClassName("normal-food")[0].getElementsByTagName("button")[0].classList.remove("disabled");
-      }
-      if (currency < 50) {
-        document.getElementsByClassName("new-bird-cage")[0].getElementsByTagName("button")[0].classList.add("disabled");
-      } else {
-        document.getElementsByClassName("new-bird-cage")[0].getElementsByTagName("button")[0].classList.remove("disabled");
-      }
-      if (currency < 50) {
-        document.getElementsByClassName("new-bird")[0].getElementsByTagName("button")[0].classList.add("disabled");
-      } else {
-        document.getElementsByClassName("new-bird")[0].getElementsByTagName("button")[0].classList.remove("disabled");
-      }
+
+    // Define a function to change the color of the bird
+    function changeColor() {
+      // Generate a random color
+      let color = '#' + Math.floor(Math.random()*16777215).toString(16);
+      // Set the color of the bird element to the random color
+      bird.style.color = color;
     }
-    // Feed the bird
+
+    // Define a function to feed the bird
     function feed() {
-      if (currency >= 5) {
-        currentBird.hunger += 10;
-        if (currentBird.hunger > 100) {
-          currentBird.hunger = 100;
-        }
-        currency -= 5;
-        update();
-      }
+      // Display a message in the bird element
+      bird.innerHTML = "SQUAAAAAK Yum!";
     }
-    // Play with the bird
-    function play() {
-      currentBird.happiness += 10;
-      if (currentBird.happiness > 100) {
-        currentBird.happiness = 100;
-      }
-      update();
-    }
-    // Upgrade the bird cage
-    function upgradeCage() {
-      if (currency >= 50) {
-        currentBird.cageType = "luxury";
-        currency -= 50;
-        update();
-      }
-    }
-    // Sell the bird
-    function sell() {
-      currency += 50;
-      // Remove bird from array and add a new empty cage
-      let index = birdCages.indexOf(currentBird);
-      if (index > -1) {
-        birdCages.splice(index, 1);
-      }
-      birdCages.push({
-        type: "normal",
-        hunger: 50,
-        happiness: 50,
-        cageType: "normal"
-      });
-      // Set current bird to the new empty cage
-      currentBird = birdCages[birdCages.length - 1];
-      update();
-    }
-    // Buy exotic food
-    function buyExoticFood() {
-      if (currency >= 10) {
-        currency -= 10;
-        update();
-      }
-    }
-    // Buy normal food
-    function buyNormalFood() {
-      if (currency >= 5) {
-        currency -= 5;
-        update();
-      }
-    }
-    // Buy a new bird cage
-    function buyNewBirdCage() {
-      if (currency >= 50) {
-        currency -= 50;
-        birdCages.push({
-          type: "normal",
-          hunger: 50,
-          happiness: 50,
-          cageType: "normal"
-        });
-        update();
-    }
-    }
-    // Buy a new bird
-    function buyNewBird() {
-      if (currency >= 50) {
-        currency -= 50;
-        birdCages.push({
-          type: "normal",
-          hunger: 50,
-          happiness: 50,
-          cageType: "normal"
-        });
-        update();
-      }
-    }
-    // Initial update
-    update();
   </script>
 </body>
 </html>
